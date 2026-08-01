@@ -3,869 +3,348 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cresce & Monetiza | Guia TikTok e YouTube</title>
-  <meta name="description" content="Guia completo para criar perfil no TikTok e YouTube e começar a monetizar. Estratégias, checklist e dicas práticas.">
+  <title>Cresce & Monetiza | Guia TikTok e YouTube + Gerador</title>
+  <meta name="description" content="Guia completo + gerador inteligente para criar perfil no TikTok e YouTube e monetizar.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0b;
-      --bg-card: #141416;
-      --bg-card-hover: #1c1c1f;
-      --text: #f4f4f5;
-      --text-muted: #a1a1aa;
-      --accent: #fe2c55;
-      --accent-2: #25f4ee;
-      --youtube: #ff0000;
-      --border: #27272a;
-      --success: #22c55e;
-      --radius: 16px;
-      --shadow: 0 10px 40px rgba(0,0,0,0.4);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Background effects */
-    .bg-glow {
-      position: fixed;
-      top: -20%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 600px;
-      background: radial-gradient(ellipse, rgba(254, 44, 85, 0.15) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(10, 10, 11, 0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-      padding: 16px 0;
-    }
-
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: 800;
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo span {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    nav {
-      display: flex;
-      gap: 28px;
-    }
-
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: var(--text);
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #e11d48);
-      color: white;
-      box-shadow: 0 4px 20px rgba(254, 44, 85, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(254, 44, 85, 0.5);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-outline:hover {
-      background: var(--bg-card);
-      border-color: var(--text-muted);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 100px 0 80px;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 28px;
-    }
-
-    .hero-badge .dot {
-      width: 8px;
-      height: 8px;
-      background: var(--success);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 20px;
-      letter-spacing: -0.03em;
-    }
-
-    .hero h1 .gradient {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      max-width: 580px;
-      margin: 0 auto 36px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* Sections */
-    section {
-      padding: 80px 0;
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .section-header .tag {
-      display: inline-block;
-      background: rgba(254, 44, 85, 0.12);
-      color: var(--accent);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 999px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .section-header h2 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-    }
-
-    .section-header p {
-      color: var(--text-muted);
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    /* Cards */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      transition: all 0.25s ease;
-    }
-
-    .card:hover {
-      background: var(--bg-card-hover);
-      border-color: #3f3f46;
-      transform: translateY(-4px);
-    }
-
-    .card-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 18px;
-    }
-
-    .card-icon.tiktok {
-      background: linear-gradient(135deg, rgba(254,44,85,0.2), rgba(37,244,238,0.15));
-    }
-
-    .card-icon.youtube {
-      background: rgba(255,0,0,0.15);
-    }
-
-    .card-icon.money {
-      background: rgba(34,197,94,0.15);
-    }
-
-    .card-icon.growth {
-      background: rgba(59,130,246,0.15);
-    }
-
-    .card h3 {
-      font-size: 1.2rem;
-      font-weight: 650;
-      margin-bottom: 10px;
-    }
-
-    .card p, .card li {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .card ul {
-      list-style: none;
-      margin-top: 12px;
-    }
-
-    .card li {
-      padding: 6px 0;
-      padding-left: 22px;
-      position: relative;
-    }
-
-    .card li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--success);
-      font-weight: 700;
-    }
-
-    /* Steps */
-    .steps {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .step {
-      display: flex;
-      gap: 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      align-items: flex-start;
-    }
-
-    .step-number {
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--accent), #e11d48);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .step h3 {
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-    }
-
-    .step p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    /* Checklist */
-    .checklist {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .checklist-item:last-child {
-      border-bottom: none;
-    }
-
-    .checklist-item input {
-      display: none;
-    }
-
-    .checkmark {
-      width: 24px;
-      height: 24px;
-      border: 2px solid var(--border);
-      border-radius: 6px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-      margin-top: 2px;
-    }
-
-    .checklist-item input:checked + .checkmark {
-      background: var(--success);
-      border-color: var(--success);
-    }
-
-    .checklist-item input:checked + .checkmark::after {
-      content: "✓";
-      color: white;
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .checklist-item input:checked ~ .check-text {
-      text-decoration: line-through;
-      color: var(--text-muted);
-      opacity: 0.7;
-    }
-
-    .check-text strong {
-      display: block;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-
-    .check-text span {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* Monetization cards */
-    .monetize-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .monetize-card .platform {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-
-    .platform.tiktok {
-      background: rgba(254,44,85,0.15);
-      color: var(--accent);
-    }
-
-    .platform.youtube {
-      background: rgba(255,0,0,0.15);
-      color: #ff4444;
-    }
-
-    .platform.both {
-      background: rgba(37,244,238,0.12);
-      color: var(--accent-2);
-    }
-
-    /* Tips */
-    .tip-box {
-      background: linear-gradient(135deg, rgba(254,44,85,0.08), rgba(37,244,238,0.05));
-      border: 1px solid rgba(254,44,85,0.2);
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-top: 32px;
-    }
-
-    .tip-box h4 {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    /* CTA final */
-    .cta {
-      text-align: center;
-      padding: 80px 0 100px;
-    }
-
-    .cta-box {
-      background: linear-gradient(135deg, rgba(254,44,85,0.12), rgba(37,244,238,0.08));
-      border: 1px solid rgba(254,44,85,0.25);
-      border-radius: 24px;
-      padding: 56px 40px;
-    }
-
-    .cta-box h2 {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .cta-box p {
-      color: var(--text-muted);
-      margin-bottom: 28px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    /* Mobile */
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-      }
-
-      .hero {
-        padding: 70px 0 60px;
-      }
-
-      .step {
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .cta-box {
-        padding: 40px 24px;
-      }
-    }
+      --bg: #0a0a0b; --bg-card: #141416; --bg-card-hover: #1c1c1f; --text: #f4f4f5;
+      --text-muted: #a1a1aa; --accent: #fe2c55; --accent-2: #25f4ee; --border: #27272a;
+      --success: #22c55e; --radius: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+    .bg-glow { position: fixed; top: -20%; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(254,44,85,0.15) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+    header { position: sticky; top: 0; background: rgba(10,10,11,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); z-index: 100; padding: 16px 0; }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 800; font-size: 1.25rem; }
+    .logo span { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    nav { display: flex; gap: 22px; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    nav a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: none; cursor: pointer; transition: all 0.25s; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), #e11d48); color: white; box-shadow: 0 4px 20px rgba(254,44,85,0.4); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { background: var(--bg-card); }
+    .hero { padding: 90px 0 70px; text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--bg-card); border: 1px solid var(--border); padding: 6px 14px; border-radius: 999px; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 28px; }
+    .hero-badge .dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .hero h1 { font-size: clamp(2.3rem,5.5vw,3.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.03em; }
+    .hero h1 .gradient { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 580px; margin: 0 auto 32px; }
+    .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    section { padding: 70px 0; }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header .tag { display: inline-block; background: rgba(254,44,85,0.12); color: var(--accent); font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .section-header h2 { font-size: clamp(1.7rem,4vw,2.3rem); font-weight: 700; margin-bottom: 10px; }
+    .section-header p { color: var(--text-muted); max-width: 520px; margin: 0 auto; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: all 0.25s; }
+    .card:hover { background: var(--bg-card-hover); transform: translateY(-3px); }
+    .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
+    .card-icon.tiktok { background: linear-gradient(135deg, rgba(254,44,85,0.2), rgba(37,244,238,0.15)); }
+    .card-icon.youtube { background: rgba(255,0,0,0.15); }
+    .card-icon.money { background: rgba(34,197,94,0.15); }
+    .card-icon.growth { background: rgba(59,130,246,0.15); }
+    .card h3 { font-size: 1.15rem; font-weight: 650; margin-bottom: 10px; }
+    .card p, .card li { color: var(--text-muted); font-size: 0.95rem; }
+    .card ul { list-style: none; margin-top: 10px; }
+    .card li { padding: 5px 0; padding-left: 22px; position: relative; }
+    .card li::before { content: "✓"; position: absolute; left: 0; color: var(--success); font-weight: 700; }
+    .steps { display: flex; flex-direction: column; gap: 18px; }
+    .step { display: flex; gap: 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+    .step-number { flex-shrink: 0; width: 38px; height: 38px; background: linear-gradient(135deg, var(--accent), #e11d48); border-radius: 11px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+    .step h3 { font-size: 1.05rem; margin-bottom: 5px; }
+    .step p { color: var(--text-muted); font-size: 0.93rem; }
+    .generator-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 32px; margin-bottom: 32px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-bottom: 24px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-muted); }
+    .form-group input, .form-group select { width: 100%; padding: 12px 14px; background: #0a0a0b; border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-size: 0.95rem; font-family: inherit; outline: none; }
+    .form-group input:focus, .form-group select:focus { border-color: var(--accent); }
+    .form-group select { cursor: pointer; appearance: none; }
+    .generator-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .result-box { display: none; margin-top: 28px; background: #0d0d0f; border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+    .result-box.active { display: block; }
+    .result-section { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .result-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .result-section h4 { font-size: 1rem; margin-bottom: 10px; }
+    .result-content { background: var(--bg-card); border-radius: 10px; padding: 16px; font-size: 0.95rem; line-height: 1.65; white-space: pre-wrap; }
+    .copy-btn { margin-top: 10px; padding: 8px 16px; font-size: 0.85rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); border-radius: 8px; cursor: pointer; }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .prompt-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; margin-bottom: 14px; }
+    .prompt-card h4 { font-size: 0.95rem; margin-bottom: 8px; color: var(--accent-2); }
+    .prompt-text { background: #0a0a0b; border-radius: 8px; padding: 12px; font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.5; white-space: pre-wrap; }
+    .checklist { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; }
+    .checklist-item:last-child { border-bottom: none; }
+    .checklist-item input { display: none; }
+    .checkmark { width: 24px; height: 24px; border: 2px solid var(--border); border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .checklist-item input:checked + .checkmark { background: var(--success); border-color: var(--success); }
+    .checklist-item input:checked + .checkmark::after { content: "✓"; color: white; font-weight: 700; font-size: 0.85rem; }
+    .checklist-item input:checked ~ .check-text { text-decoration: line-through; opacity: 0.7; }
+    .check-text strong { display: block; color: var(--text); margin-bottom: 2px; }
+    .check-text span { font-size: 0.9rem; color: var(--text-muted); }
+    .monetize-card { position: relative; }
+    .monetize-card .platform { position: absolute; top: 14px; right: 14px; font-size: 0.72rem; font-weight: 600; padding: 3px 9px; border-radius: 999px; }
+    .platform.tiktok { background: rgba(254,44,85,0.15); color: var(--accent); }
+    .platform.youtube { background: rgba(255,0,0,0.15); color: #ff4444; }
+    .platform.both { background: rgba(37,244,238,0.12); color: var(--accent-2); }
+    .tip-box { background: linear-gradient(135deg, rgba(254,44,85,0.08), rgba(37,244,238,0.05)); border: 1px solid rgba(254,44,85,0.2); border-radius: var(--radius); padding: 22px; margin-top: 28px; }
+    .cta { text-align: center; padding: 70px 0 90px; }
+    .cta-box { background: linear-gradient(135deg, rgba(254,44,85,0.12), rgba(37,244,238,0.08)); border: 1px solid rgba(254,44,85,0.25); border-radius: 24px; padding: 48px 36px; }
+    .cta-box h2 { font-size: 1.9rem; margin-bottom: 12px; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+    @media (max-width: 768px) { nav { display: none; } .hero { padding: 60px 0 50px; } .step { flex-direction: column; gap: 10px; } .generator-box { padding: 22px; } }
   </style>
 </head>
 <body>
   <div class="bg-glow"></div>
-
-  <!-- Header -->
   <header>
     <div class="container header-inner">
-      <div class="logo">
-        <span>Cresce & Monetiza</span>
-      </div>
+      <div class="logo"><span>Cresce & Monetiza</span></div>
       <nav>
+        <a href="#gerador">Gerador</a>
         <a href="#perfis">Perfis</a>
         <a href="#crescimento">Crescimento</a>
         <a href="#monetizacao">Monetização</a>
         <a href="#checklist">Checklist</a>
       </nav>
-      <a href="#checklist" class="btn btn-primary">Começar agora</a>
+      <a href="#gerador" class="btn btn-primary">Gerar agora</a>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        Guia prático e atualizado
-      </div>
-      <h1>
-        Crie seu perfil no<br>
-        <span class="gradient">TikTok e YouTube</span><br>
-        e comece a monetizar
-      </h1>
-      <p>
-        Aprenda o passo a passo para montar perfis profissionais, 
-        crescer de forma consistente e transformar views em dinheiro.
-      </p>
+      <div class="hero-badge"><span class="dot"></span> Guia + Gerador inteligente</div>
+      <h1>Crie, cresça e monetize no<br><span class="gradient">TikTok e YouTube</span></h1>
+      <p>Use o gerador abaixo para criar bios, ideias de conteúdo, hooks e planos de ação em segundos.</p>
       <div class="hero-buttons">
-        <a href="#perfis" class="btn btn-primary">Ver o guia completo</a>
-        <a href="#checklist" class="btn btn-outline">Ir para o Checklist</a>
+        <a href="#gerador" class="btn btn-primary">Abrir Gerador</a>
+        <a href="#perfis" class="btn btn-outline">Ver o guia</a>
       </div>
     </div>
   </section>
 
-  <!-- Perfis -->
+  <section id="gerador" style="background:#0d0d0f;">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Ferramenta principal</div>
+        <h2>Gerador inteligente</h2>
+        <p>Preencha os campos e gere tudo o que você precisa para começar.</p>
+      </div>
+      <div class="generator-box">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Seu nicho / tema</label>
+            <input type="text" id="nicho" placeholder="Ex: finanças para jovens, receitas fit...">
+          </div>
+          <div class="form-group">
+            <label>Seu nome ou @</label>
+            <input type="text" id="nome" placeholder="Ex: João, @joaofinancas">
+          </div>
+          <div class="form-group">
+            <label>Tom de voz</label>
+            <select id="tom">
+              <option value="descontraido">Descontraído e próximo</option>
+              <option value="profissional">Profissional e direto</option>
+              <option value="motivacional">Motivacional e inspirador</option>
+              <option value="educativo">Educativo e didático</option>
+              <option value="humor">Com humor</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Objetivo principal</label>
+            <select id="objetivo">
+              <option value="crescer">Crescer rápido</option>
+              <option value="monetizar">Monetizar o quanto antes</option>
+              <option value="autoridade">Construir autoridade</option>
+              <option value="comunidade">Criar comunidade</option>
+            </select>
+          </div>
+        </div>
+        <div class="generator-actions">
+          <button class="btn btn-primary" onclick="gerarTudo()">✨ Gerar tudo</button>
+          <button class="btn btn-outline" onclick="limparResultados()">Limpar</button>
+        </div>
+        <div id="resultados" class="result-box">
+          <div class="result-section"><h4>📱 Bio TikTok</h4><div class="result-content" id="bio-tiktok"></div><button class="copy-btn" onclick="copiar('bio-tiktok')">Copiar</button></div>
+          <div class="result-section"><h4>▶️ Bio YouTube</h4><div class="result-content" id="bio-youtube"></div><button class="copy-btn" onclick="copiar('bio-youtube')">Copiar</button></div>
+          <div class="result-section"><h4>💡 10 Ideias de conteúdo</h4><div class="result-content" id="ideias"></div><button class="copy-btn" onclick="copiar('ideias')">Copiar</button></div>
+          <div class="result-section"><h4>🔥 5 Hooks fortes</h4><div class="result-content" id="hooks"></div><button class="copy-btn" onclick="copiar('hooks')">Copiar</button></div>
+          <div class="result-section"><h4>📅 Plano de 7 dias</h4><div class="result-content" id="plano"></div><button class="copy-btn" onclick="copiar('plano')">Copiar</button></div>
+          <div class="result-section"><h4>✅ Checklist personalizado</h4><div class="result-content" id="checklist-gerado"></div><button class="copy-btn" onclick="copiar('checklist-gerado')">Copiar</button></div>
+        </div>
+      </div>
+
+      <div class="section-header" style="margin-top:50px;">
+        <div class="tag">Potência máxima</div>
+        <h2>Use o Grok para ir além</h2>
+        <p>Copie um prompt e cole no Grok para resultados ainda melhores.</p>
+      </div>
+      <div class="prompt-card">
+        <h4>1. Gerar roteiro completo de vídeo</h4>
+        <div class="prompt-text" id="prompt1">Atue como especialista em conteúdo viral para TikTok e YouTube Shorts.
+Meu nicho é: [SEU NICHO].
+Tom de voz: [DESCONTRAÍDO / PROFISSIONAL / MOTIVACIONAL].
+Crie um roteiro completo de 45-60 segundos com:
+- Hook forte nos primeiros 3 segundos
+- Desenvolvimento com valor real
+- CTA no final
+Inclua também a legenda e 5 hashtags estratégicas.</div>
+        <button class="copy-btn" onclick="copiar('prompt1')">Copiar prompt</button>
+      </div>
+      <div class="prompt-card">
+        <h4>2. Estratégia de monetização personalizada</h4>
+        <div class="prompt-text" id="prompt2">Sou criador de conteúdo no TikTok e YouTube no nicho de [SEU NICHO].
+Tenho aproximadamente [X] seguidores/inscritos.
+Quero monetizar o mais rápido possível de forma ética e sustentável.
+Me dê um plano detalhado com as 5 melhores formas de gerar renda no meu caso, com passos práticos e exemplos.</div>
+        <button class="copy-btn" onclick="copiar('prompt2')">Copiar prompt</button>
+      </div>
+      <div class="prompt-card">
+        <h4>3. Análise de nicho + ideias</h4>
+        <div class="prompt-text" id="prompt3">Analise o nicho "[SEU NICHO]" no TikTok e YouTube.
+Me diga:
+1. Nível de concorrência e potencial de crescimento
+2. Formatos de conteúdo que mais performam
+3. 15 ideias de vídeos com alto potencial
+4. Como diferenciar minha marca</div>
+        <button class="copy-btn" onclick="copiar('prompt3')">Copiar prompt</button>
+      </div>
+      <div class="prompt-card">
+        <h4>4. Plano de crescimento de 30 dias</h4>
+        <div class="prompt-text" id="prompt4">Crie um plano detalhado de 30 dias para crescer no TikTok e YouTube no nicho de [SEU NICHO].
+Inclua: frequência de postagem, tipos de conteúdo, metas realistas, métricas e ajustes semanais.</div>
+        <button class="copy-btn" onclick="copiar('prompt4')">Copiar prompt</button>
+      </div>
+      <p style="text-align:center;margin-top:24px;color:var(--text-muted);font-size:0.95rem;">
+        Abra o Grok → <a href="https://grok.x.ai" target="_blank" rel="noopener" style="color:var(--accent-2);">grok.x.ai</a> e cole o prompt.
+      </p>
+    </div>
+  </section>
+
   <section id="perfis">
     <div class="container">
-      <div class="section-header">
-        <div class="tag">Passo 1</div>
-        <h2>Como criar perfis otimizados</h2>
-        <p>Um perfil bem feito é a base para crescer e monetizar. Comece certo.</p>
-      </div>
-
+      <div class="section-header"><div class="tag">Passo 1</div><h2>Como criar perfis otimizados</h2><p>Um perfil bem feito é a base para crescer e monetizar.</p></div>
       <div class="grid-2">
-        <!-- TikTok -->
-        <div class="card">
-          <div class="card-icon tiktok">📱</div>
-          <h3>Perfil no TikTok</h3>
-          <ul>
-            <li><strong>Foto de perfil</strong> — Use uma foto clara do seu rosto ou logo simples. Evite fotos de grupo.</li>
-            <li><strong>Nome de usuário</strong> — Curto, fácil de lembrar e sem números aleatórios. Ex: @seunome</li>
-            <li><strong>Bio</strong> — 1 linha do que você faz + 1 linha de valor + link (Linktree ou site).</li>
-            <li><strong>Link na bio</strong> — Essencial. Use Linktree, Beacons ou seu próprio site.</li>
-            <li><strong>Categoria</strong> — Escolha a categoria correta (Educação, Entretenimento, etc.).</li>
-            <li><strong>Vídeo fixado</strong> — Fixe seu melhor vídeo ou um vídeo de apresentação.</li>
-          </ul>
-        </div>
-
-        <!-- YouTube -->
-        <div class="card">
-          <div class="card-icon youtube">▶️</div>
-          <h3>Perfil no YouTube</h3>
-          <ul>
-            <li><strong>Nome do canal</strong> — Claro e relacionado ao nicho. Evite nomes genéricos.</li>
-            <li><strong>Foto e banner</strong> — Foto do rosto + banner profissional (2560x1440px).</li>
-            <li><strong>Descrição do canal</strong> — Explique o que o inscrito vai encontrar + palavras-chave.</li>
-            <li><strong>Links</strong> — Coloque redes sociais e site na seção de links.</li>
-            <li><strong>Trailer do canal</strong> — Configure um vídeo de apresentação para não inscritos.</li>
-            <li><strong>Seções</strong> — Organize playlists e seções na página inicial do canal.</li>
-          </ul>
-        </div>
+        <div class="card"><div class="card-icon tiktok">📱</div><h3>Perfil no TikTok</h3><ul>
+          <li><strong>Foto de perfil</strong> — Foto clara do rosto ou logo simples.</li>
+          <li><strong>Nome de usuário</strong> — Curto, fácil de lembrar.</li>
+          <li><strong>Bio</strong> — 1 linha do que você faz + 1 de valor + link.</li>
+          <li><strong>Link na bio</strong> — Linktree, Beacons ou site.</li>
+          <li><strong>Categoria</strong> — Escolha a correta.</li>
+          <li><strong>Vídeo fixado</strong> — Seu melhor vídeo ou apresentação.</li>
+        </ul></div>
+        <div class="card"><div class="card-icon youtube">▶️</div><h3>Perfil no YouTube</h3><ul>
+          <li><strong>Nome do canal</strong> — Claro e relacionado ao nicho.</li>
+          <li><strong>Foto e banner</strong> — Rosto + banner 2560x1440px.</li>
+          <li><strong>Descrição</strong> — Explique o valor + palavras-chave.</li>
+          <li><strong>Links</strong> — Redes sociais e site.</li>
+          <li><strong>Trailer</strong> — Vídeo de apresentação.</li>
+          <li><strong>Seções</strong> — Organize playlists.</li>
+        </ul></div>
       </div>
-
-      <div class="tip-box">
-        <h4>💡 Dica de ouro</h4>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">
-          Use o <strong>mesmo nome de usuário</strong> em todas as redes. Isso facilita o reconhecimento da marca e aumenta a chance de as pessoas te encontrarem em outras plataformas.
-        </p>
-      </div>
+      <div class="tip-box"><h4>💡 Dica de ouro</h4><p style="color:var(--text-muted);font-size:0.95rem;">Use o <strong>mesmo nome de usuário</strong> em todas as redes.</p></div>
     </div>
   </section>
 
-  <!-- Crescimento -->
-  <section id="crescimento" style="background: #0d0d0f;">
+  <section id="crescimento" style="background:#0d0d0f;">
     <div class="container">
-      <div class="section-header">
-        <div class="tag">Passo 2</div>
-        <h2>Estratégias de crescimento</h2>
-        <p>Crescer de forma consistente é o que separa quem monetiza de quem só posta.</p>
-      </div>
-
+      <div class="section-header"><div class="tag">Passo 2</div><h2>Estratégias de crescimento</h2></div>
       <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <div>
-            <h3>Escolha um nicho claro</h3>
-            <p>Não tente falar de tudo. Escolha um tema específico (ex: finanças para jovens, receitas fitness, dicas de inglês). Nichos claros convertem melhor e facilitam monetização.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <div>
-            <h3>Poste com consistência</h3>
-            <p>No TikTok: 1 a 3 vídeos por dia no início. No YouTube: 2 a 4 vídeos por semana. Consistência supera perfeição. O algoritmo recompensa quem aparece com frequência.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <div>
-            <h3>Hooks nos primeiros 3 segundos</h3>
-            <p>A retenção decide se o vídeo explode. Comece com pergunta, afirmação forte ou cena impactante. Nunca comece com “Oi gente, tudo bem?”.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <div>
-            <h3>Analise o que funciona</h3>
-            <p>Toda semana olhe os números: retenção, compartilhamentos e comentários. Dobre o que está funcionando e mate o que não está. Dados > opinião.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-number">5</div>
-          <div>
-            <h3>Interaja e use tendências</h3>
-            <p>Responda comentários, use áudios em alta e participe de challenges do seu nicho. Isso aumenta o alcance e cria comunidade.</p>
-          </div>
-        </div>
+        <div class="step"><div class="step-number">1</div><div><h3>Escolha um nicho claro</h3><p>Nichos específicos convertem melhor e facilitam monetização.</p></div></div>
+        <div class="step"><div class="step-number">2</div><div><h3>Poste com consistência</h3><p>TikTok: 1-3/dia. YouTube: 2-4/semana. Consistência > perfeição.</p></div></div>
+        <div class="step"><div class="step-number">3</div><div><h3>Hooks nos primeiros 3 segundos</h3><p>Comece com pergunta, afirmação forte ou cena impactante.</p></div></div>
+        <div class="step"><div class="step-number">4</div><div><h3>Analise o que funciona</h3><p>Olhe retenção, compartilhamentos e comentários toda semana.</p></div></div>
+        <div class="step"><div class="step-number">5</div><div><h3>Interaja e use tendências</h3><p>Responda comentários e use áudios em alta do seu nicho.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- Monetização -->
   <section id="monetizacao">
     <div class="container">
-      <div class="section-header">
-        <div class="tag">Passo 3</div>
-        <h2>Como monetizar</h2>
-        <p>Existem várias formas de transformar audiência em renda. Conheça as principais.</p>
-      </div>
-
+      <div class="section-header"><div class="tag">Passo 3</div><h2>Como monetizar</h2></div>
       <div class="grid-3">
-        <div class="card monetize-card">
-          <span class="platform tiktok">TikTok</span>
-          <div class="card-icon money">💰</div>
-          <h3>Fundo de Criadores + LIVE</h3>
-          <p>Programa de recompensas por views e presentes em lives. Requisitos variam por país. Foque em engajamento real.</p>
-        </div>
-
-        <div class="card monetize-card">
-          <span class="platform youtube">YouTube</span>
-          <div class="card-icon money">▶️</div>
-          <h3>YouTube Partner Program</h3>
-          <p>Monetize com anúncios, Super Chat, membros e Shorts Fund. Requisitos: 1.000 inscritos + 4.000h de watch ou 10M views em Shorts.</p>
-        </div>
-
-        <div class="card monetize-card">
-          <span class="platform both">Ambos</span>
-          <div class="card-icon money">🤝</div>
-          <h3>Parcerias e afiliados</h3>
-          <p>Divulgue produtos (Hotmart, Amazon, etc.) e faça collabs com marcas. Geralmente a fonte de renda mais alta para iniciantes.</p>
-        </div>
-
-        <div class="card monetize-card">
-          <span class="platform both">Ambos</span>
-          <div class="card-icon growth">📦</div>
-          <h3>Produtos digitais</h3>
-          <p>Venda ebooks, cursos, planilhas ou mentorias. Sua audiência já confia em você — aproveite para oferecer valor pago.</p>
-        </div>
-
-        <div class="card monetize-card">
-          <span class="platform both">Ambos</span>
-          <div class="card-icon growth">🎁</div>
-          <h3>Presentes e lives</h3>
-          <p>Lives engajadas geram presentes e doações. Crie rotinas de live e interaja bastante com o chat.</p>
-        </div>
-
-        <div class="card monetize-card">
-          <span class="platform both">Ambos</span>
-          <div class="card-icon growth">🔗</div>
-          <h3>Tráfego para outros canais</h3>
-          <p>Use TikTok e Shorts para levar gente para o YouTube longo, Instagram ou seu site. Diversifique as fontes de renda.</p>
-        </div>
+        <div class="card monetize-card"><span class="platform tiktok">TikTok</span><div class="card-icon money">💰</div><h3>Fundo de Criadores + LIVE</h3><p>Recompensas por views e presentes em lives.</p></div>
+        <div class="card monetize-card"><span class="platform youtube">YouTube</span><div class="card-icon money">▶️</div><h3>YouTube Partner Program</h3><p>Anúncios, Super Chat, membros e Shorts.</p></div>
+        <div class="card monetize-card"><span class="platform both">Ambos</span><div class="card-icon money">🤝</div><h3>Parcerias e afiliados</h3><p>Hotmart, Amazon e collabs com marcas.</p></div>
+        <div class="card monetize-card"><span class="platform both">Ambos</span><div class="card-icon growth">📦</div><h3>Produtos digitais</h3><p>Ebooks, cursos, planilhas ou mentorias.</p></div>
+        <div class="card monetize-card"><span class="platform both">Ambos</span><div class="card-icon growth">🎁</div><h3>Presentes e lives</h3><p>Lives engajadas geram presentes e doações.</p></div>
+        <div class="card monetize-card"><span class="platform both">Ambos</span><div class="card-icon growth">🔗</div><h3>Tráfego para outros canais</h3><p>Use Shorts/TikTok para levar gente ao YouTube longo.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Checklist -->
-  <section id="checklist" style="background: #0d0d0f;">
+  <section id="checklist" style="background:#0d0d0f;">
     <div class="container">
-      <div class="section-header">
-        <div class="tag">Ferramenta</div>
-        <h2>Checklist prático</h2>
-        <p>Marque cada item conforme for completando. Comece hoje.</p>
-      </div>
-
+      <div class="section-header"><div class="tag">Ferramenta</div><h2>Checklist prático</h2></div>
       <div class="checklist">
-        <label class="checklist-item">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-          <div class="check-text">
-            <strong>Definir o nicho principal</strong>
-            <span>Escolha um tema específico e anote 10 ideias de conteúdo</span>
-          </div>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-          <div class="check-text">
-            <strong>Criar conta no TikTok e YouTube</strong>
-            <span>Use o mesmo e-mail e mesmo @ em ambas as plataformas</span>
-          </div>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-          <div class="check-text">
-            <strong>Otimizar foto, bio e links</strong>
-            <span>Foto clara + bio com valor + Linktree ou site</span>
-          </div>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-          <div class="check-text">
-            <strong>Gravar e postar os 7 primeiros vídeos</strong>
-            <span>Foque em qualidade média e consistência. Não espere perfeição</span>
-          </div>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-          <div class="check-text">
-            <strong>Analisar métricas da primeira semana</strong>
-            <span>Veja retenção, compartilhamentos e comentários</span>
-          </div>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-          <div class="check-text">
-            <strong>Configurar monetização (quando elegível)</strong>
-            <span>Ative YPP no YouTube e Fundo de Criadores no TikTok</span>
-          </div>
-        </label>
-        <label class="checklist-item">
-          <input type="checkbox">
-          <span class="checkmark"></span>
-          <div class="check-text">
-            <strong>Criar primeiro produto ou link de afiliado</strong>
-            <span>Comece simples: um ebook gratuito ou link de afiliado</span>
-          </div>
-        </label>
+        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Definir o nicho principal</strong><span>Escolha um tema e anote 10 ideias</span></div></label>
+        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Criar conta no TikTok e YouTube</strong><span>Mesmo e-mail e mesmo @</span></div></label>
+        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Otimizar foto, bio e links</strong><span>Foto clara + bio + Linktree</span></div></label>
+        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Gravar e postar os 7 primeiros vídeos</strong><span>Consistência > perfeição</span></div></label>
+        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Analisar métricas da primeira semana</strong><span>Retenção e compartilhamentos</span></div></label>
+        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Configurar monetização</strong><span>YPP + Fundo de Criadores</span></div></label>
+        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Criar primeiro produto ou afiliado</strong><span>Comece simples</span></div></label>
       </div>
     </div>
   </section>
 
-  <!-- Dicas extras -->
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <div class="tag">Bônus</div>
-        <h2>Dicas que aceleram resultados</h2>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-icon growth">🎯</div>
-          <h3>Foque em retenção</h3>
-          <p>O algoritmo prioriza vídeos que as pessoas assistem até o final. Edite cortando partes chatas e faça o espectador querer continuar.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon growth">📅</div>
-          <h3>Poste nos horários certos</h3>
-          <p>Teste: 12h–14h, 18h–21h e finais de semana. Depois olhe as estatísticas e ajuste para o horário em que sua audiência está online.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon growth">🔥</div>
-          <h3>Repurpose conteúdo</h3>
-          <p>Um vídeo longo do YouTube vira 3–5 Shorts/TikToks. Maximize o esforço: grave uma vez e distribua em vários formatos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Final -->
   <section class="cta">
     <div class="container">
       <div class="cta-box">
         <h2>Agora é com você</h2>
-        <p>
-          O melhor momento para começar foi ontem. O segundo melhor é agora. 
-          Abra o TikTok e o YouTube e configure seus perfis hoje.
-        </p>
-        <a href="#checklist" class="btn btn-primary">Voltar ao Checklist</a>
+        <p>Use o gerador, copie os prompts para o Grok e comece a postar hoje.</p>
+        <a href="#gerador" class="btn btn-primary">Voltar ao Gerador</a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>Cresce & Monetiza — Guia prático para criadores de conteúdo</p>
-      <p style="margin-top: 8px; font-size: 0.8rem;">Feito para quem quer transformar criatividade em renda</p>
+      <p>Cresce & Monetiza — Guia + Gerador para criadores</p>
     </div>
   </footer>
 
   <script>
-    // Salva o estado dos checkboxes no localStorage
-    document.querySelectorAll('.checklist-item input').forEach((checkbox, index) => {
-      const key = 'checklist-item-' + index;
-      checkbox.checked = localStorage.getItem(key) === 'true';
-      
-      checkbox.addEventListener('change', () => {
-        localStorage.setItem(key, checkbox.checked);
-      });
+    document.querySelectorAll('.checklist-item input').forEach((c,i)=>{
+      const k='checklist-item-'+i;
+      c.checked=localStorage.getItem(k)==='true';
+      c.addEventListener('change',()=>localStorage.setItem(k,c.checked));
     });
+    function copiar(id){
+      const el=document.getElementById(id);
+      navigator.clipboard.writeText(el.innerText).then(()=>{
+        const b=el.nextElementSibling;
+        if(b&&b.classList.contains('copy-btn')){const o=b.innerText;b.innerText='Copiado!';setTimeout(()=>b.innerText=o,1500);}
+      });
+    }
+    function limparResultados(){document.getElementById('resultados').classList.remove('active');}
+    function gerarTudo(){
+      const nicho=document.getElementById('nicho').value.trim()||'seu nicho';
+      const nome=document.getElementById('nome').value.trim()||'seu nome';
+      const tom=document.getElementById('tom').value;
+      const objetivo=document.getElementById('objetivo').value;
+      const tomText={descontraido:'descontraído e próximo',profissional:'profissional e direto',motivacional:'motivacional e inspirador',educativo:'educativo e didático',humor:'com humor leve'}[tom];
+      document.getElementById('bio-tiktok').innerText=nome+' | '+nicho+'\nTe ajudo a evoluir de forma prática e '+tomText+'.\n👇 Começa por aqui';
+      document.getElementById('bio-youtube').innerText='Bem-vindo ao canal de '+nome+'!\n\nAqui você encontra conteúdo sobre '+nicho+' de forma '+tomText+'.\n\nO que você vai encontrar:\n• Dicas práticas\n• Estratégias que funcionam\n• Conteúdo direto ao ponto\n\nSe inscreva e ative o sininho.';
+      let ideias=['1. "O erro que 90% cometem em '+nicho+'"','2. "Como comecei em '+nicho+' do zero"','3. "3 dicas rápidas de '+nicho+'"','4. "O que eu faria se recomeçasse em '+nicho+'"','5. "Mitos vs Verdades sobre '+nicho+'"','6. "Ferramentas gratuitas para '+nicho+'"','7. "Rotina real de quem leva '+nicho+' a sério"','8. "Perguntas de iniciantes em '+nicho+'"','9. "O que mudou quando foquei em '+nicho+'"','10. "Passo a passo para começar em '+nicho+'"'];
+      if(objetivo==='monetizar'){ideias[2]='3. "Como transformar '+nicho+' em renda"';ideias[8]='9. "Formas reais de ganhar com '+nicho+'"';}
+      document.getElementById('ideias').innerText=ideias.join('\n');
+      document.getElementById('hooks').innerText=['1. "Se você ainda acredita nisso sobre '+nicho+', assista até o final."','2. "Eu perdi meses fazendo '+nicho+' errado. Aqui está o que funciona."','3. "Ninguém te fala isso sobre '+nicho+'..."','4. "Pare de cometer esse erro em '+nicho+'."','5. "Em 30 segundos o que demorei meses para aprender sobre '+nicho+'."'].join('\n');
+      document.getElementById('plano').innerText='Dia 1: Configurar perfil + bio + link\nDia 2: Postar 2 vídeos de valor sobre '+nicho+'\nDia 3: 2 vídeos (hook forte + dúvida comum)\nDia 4: Analisar e repostar o melhor\nDia 5: Vídeo de apresentação + educativo\nDia 6: Interagir + postar 1 vídeo\nDia 7: Revisar métricas e planejar próxima semana';
+      document.getElementById('checklist-gerado').innerText='☐ Definir sub-nicho de '+nicho+'\n☐ Criar @ igual no TikTok e YouTube\n☐ Escrever bio otimizada\n☐ Colocar link na bio\n☐ Gravar 3 vídeos de teste\n☐ Postar todos os dias por 7 dias\n☐ Responder comentários\n☐ Analisar retenção\n☐ Criar link de afiliado ou produto\n☐ Usar Grok para próximos roteiros';
+      document.getElementById('resultados').classList.add('active');
+      document.getElementById('resultados').scrollIntoView({behavior:'smooth',block:'start'});
+    }
   </script>
 </body>
 </html>
