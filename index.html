@@ -1,341 +1,135 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cresce & Monetiza | Guia TikTok e YouTube + Gerador</title>
-  <meta name="description" content="Guia completo + gerador + nichos em alta 2026 para TikTok e YouTube.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0a0a0b;--bg-card:#141416;--text:#f4f4f5;--text-muted:#a1a1aa;--accent:#fe2c55;--accent-2:#25f4ee;--border:#27272a;--success:#22c55e;--radius:16px}
-    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-    .container{max-width:1100px;margin:0 auto;padding:0 24px}
-    header{position:sticky;top:0;background:rgba(10,10,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);z-index:100;padding:16px 0}
-    .header-inner{display:flex;justify-content:space-between;align-items:center}
-    .logo span{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800;font-size:1.25rem}
-    nav{display:flex;gap:18px}nav a{color:var(--text-muted);text-decoration:none;font-size:.88rem}
-    .btn{display:inline-flex;padding:12px 24px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:none;cursor:pointer}
-    .btn-primary{background:linear-gradient(135deg,var(--accent),#e11d48);color:#fff}
-    .btn-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
-    .hero{padding:90px 0 70px;text-align:center}
-    .hero-badge{display:inline-flex;gap:8px;background:var(--bg-card);border:1px solid var(--border);padding:6px 14px;border-radius:999px;font-size:.85rem;color:var(--text-muted);margin-bottom:28px}
-    .hero h1{font-size:clamp(2.2rem,5.5vw,3.4rem);font-weight:800;line-height:1.15;margin-bottom:20px}
-    .hero h1 .gradient{background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero p{font-size:1.15rem;color:var(--text-muted);max-width:580px;margin:0 auto 32px}
-    .hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-    section{padding:70px 0}
-    .section-header{text-align:center;margin-bottom:40px}
-    .section-header .tag{display:inline-block;background:rgba(254,44,85,.12);color:var(--accent);font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:999px;margin-bottom:12px;text-transform:uppercase}
-    .section-header h2{font-size:clamp(1.7rem,4vw,2.3rem);font-weight:700;margin-bottom:10px}
-    .section-header p{color:var(--text-muted);max-width:560px;margin:0 auto}
-    .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
-    .card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
-    .card h3{font-size:1.15rem;margin-bottom:10px}
-    .card p,.card li{color:var(--text-muted);font-size:.95rem}
-    .card ul{list-style:none;margin-top:10px}.card li{padding:5px 0 5px 22px;position:relative}.card li::before{content:"✓";position:absolute;left:0;color:var(--success);font-weight:700}
-    .platform-rec{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
-    .platform-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;text-align:center;position:relative}
-    .platform-card.recommended{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-    .platform-card .badge-rec{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.75rem;font-weight:700;padding:4px 14px;border-radius:999px}
-    .platform-card h3{font-size:1.3rem;margin:12px 0 8px}
-    .platform-card .score{font-size:2rem;font-weight:800;color:var(--accent-2);margin-bottom:8px}
-    .niche-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
-    .niche-card .rank{font-size:.8rem;font-weight:700;color:var(--accent);margin-bottom:8px}
-    .niche-meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-    .niche-meta span{font-size:.75rem;padding:3px 10px;border-radius:999px;background:#1a1a1d;color:var(--text-muted)}
-    .niche-meta span.high{background:rgba(34,197,94,.15);color:var(--success)}
-    .niche-meta span.med{background:rgba(234,179,8,.15);color:#eab308}
-    .tip-box{background:linear-gradient(135deg,rgba(254,44,85,.08),rgba(37,244,238,.05));border:1px solid rgba(254,44,85,.2);border-radius:var(--radius);padding:22px;margin-top:28px}
-    .generator-box{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px;margin-bottom:32px}
-    .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-bottom:24px}
-    .form-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:6px;color:var(--text-muted)}
-    .form-group input,.form-group select{width:100%;padding:12px 14px;background:#0a0a0b;border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:.95rem;font-family:inherit}
-    .generator-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .result-box{display:none;margin-top:28px;background:#0d0d0f;border:1px solid var(--border);border-radius:16px;padding:24px}
-    .result-box.active{display:block}
-    .result-section{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)}
-    .result-section:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
-    .result-content{background:var(--bg-card);border-radius:10px;padding:16px;font-size:.95rem;line-height:1.65;white-space:pre-wrap}
-    .copy-btn{margin-top:10px;padding:8px 16px;font-size:.85rem;background:transparent;border:1px solid var(--border);color:var(--text-muted);border-radius:8px;cursor:pointer}
-    .prompt-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:14px}
-    .prompt-card h4{font-size:.95rem;margin-bottom:8px;color:var(--accent-2)}
-    .prompt-text{background:#0a0a0b;border-radius:8px;padding:12px;font-size:.88rem;color:var(--text-muted);margin-bottom:12px;line-height:1.5;white-space:pre-wrap}
-    .checklist{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px}
-    .checklist-item{display:flex;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);cursor:pointer}
-    .checklist-item:last-child{border-bottom:none}
-    .checklist-item input{display:none}
-    .checkmark{width:24px;height:24px;border:2px solid var(--border);border-radius:6px;flex-shrink:0;margin-top:2px}
-    .checklist-item input:checked+.checkmark{background:var(--success);border-color:var(--success)}
-    .checklist-item input:checked+.checkmark::after{content:"✓";color:#fff;font-weight:700;font-size:.85rem;display:flex;justify-content:center}
-    .check-text strong{display:block;color:var(--text)}
-    .check-text span{font-size:.9rem;color:var(--text-muted)}
-    .steps{display:flex;flex-direction:column;gap:18px}
-    .step{display:flex;gap:18px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
-    .step-number{flex-shrink:0;width:38px;height:38px;background:linear-gradient(135deg,var(--accent),#e11d48);border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:700}
-    .cta{text-align:center;padding:70px 0 90px}
-    .cta-box{background:linear-gradient(135deg,rgba(254,44,85,.12),rgba(37,244,238,.08));border:1px solid rgba(254,44,85,.25);border-radius:24px;padding:48px 36px}
-    footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--text-muted);font-size:.9rem}
-    @media(max-width:768px){nav{display:none}.platform-rec{grid-template-columns:1fr}.hero{padding:60px 0 50px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cresce & Monetiza 🚀 | TikTok + YouTube</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080c;--bg-card:#12121a;--bg-elevated:#1a1a24;--text:#f5f5f7;--text-muted:#9b9baf;--pink:#ff2d55;--cyan:#00f0ff;--purple:#a855f7;--yellow:#fbbf24;--green:#34d399;--border:#2a2a38;--radius:20px}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+.bg-blobs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;animation:float 18s ease-in-out infinite}
+.blob-1{width:500px;height:500px;background:var(--pink);top:-10%;left:-10%}
+.blob-2{width:400px;height:400px;background:var(--cyan);top:40%;right:-15%;animation-delay:-6s}
+.blob-3{width:350px;height:350px;background:var(--purple);bottom:-10%;left:30%;animation-delay:-12s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-40px) scale(1.05)}66%{transform:translate(-20px,20px) scale(.95)}}
+.container{max-width:1080px;margin:0 auto;padding:0 20px;position:relative;z-index:1}
+header{position:sticky;top:0;z-index:100;background:rgba(8,8,12,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 0}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Space Grotesk,sans-serif;font-weight:700;font-size:1.35rem;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+nav{display:flex;gap:6px}nav a{color:var(--text-muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:8px 14px;border-radius:999px}nav a:hover{color:var(--text);background:var(--bg-elevated)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;border:none;cursor:pointer;transition:all .25s;font-family:inherit}
+.btn-primary{background:linear-gradient(135deg,var(--pink),#ff6b8a);color:#fff;box-shadow:0 4px 24px rgba(255,45,85,.4)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02)}
+.btn-cyan{background:linear-gradient(135deg,var(--cyan),#67e8f9);color:#0a0a0c;font-weight:800}
+.btn-outline{background:transparent;color:var(--text);border:2px solid var(--border)}
+.btn-outline:hover{border-color:var(--cyan);color:var(--cyan)}
+.hero{padding:80px 0 60px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg-card);border:1px solid var(--border);padding:8px 16px;border-radius:999px;font-size:.85rem;color:var(--text-muted);margin-bottom:24px}
+.hero h1{font-family:Space Grotesk,sans-serif;font-size:clamp(2.4rem,6vw,3.8rem);font-weight:700;line-height:1.1;margin-bottom:18px}
+.hero h1 .grad{background:linear-gradient(90deg,var(--pink),var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200% auto;animation:shine 4s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.hero p{font-size:1.15rem;color:var(--text-muted);max-width:520px;margin:0 auto 32px}
+.hero-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+section{padding:64px 0}
+.section-header{text-align:center;margin-bottom:36px}
+.section-header .tag{display:inline-block;font-size:.8rem;font-weight:700;padding:5px 14px;border-radius:999px;margin-bottom:12px;text-transform:uppercase}
+.tag-pink{background:rgba(255,45,85,.15);color:var(--pink)}
+.tag-cyan{background:rgba(0,240,255,.12);color:var(--cyan)}
+.tag-purple{background:rgba(168,85,247,.15);color:var(--purple)}
+.tag-yellow{background:rgba(251,191,36,.15);color:var(--yellow)}
+.section-header h2{font-family:Space Grotesk,sans-serif;font-size:clamp(1.7rem,4vw,2.4rem);font-weight:700;margin-bottom:10px}
+.section-header p{color:var(--text-muted);max-width:520px;margin:0 auto}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:all .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.card-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:14px}
+.card h3{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.card p,.card li{color:var(--text-muted);font-size:.93rem}
+.card ul{list-style:none;margin-top:10px}.card li{padding:5px 0 5px 24px;position:relative}.card li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.platform-rec{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:28px}
+.platform-card{background:var(--bg-card);border:2px solid var(--border);border-radius:24px;padding:32px 24px;text-align:center;position:relative}
+.platform-card.winner{border-color:var(--pink);background:linear-gradient(180deg,rgba(255,45,85,.12) 0%,var(--bg-card) 60%)}
+.platform-card .badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--pink),#ff6b8a);color:#fff;font-size:.75rem;font-weight:800;padding:6px 16px;border-radius:999px;white-space:nowrap}
+.platform-card .emoji-big{font-size:3rem;margin:8px 0}
+.platform-card h3{font-family:Space Grotesk,sans-serif;font-size:1.5rem;margin-bottom:6px}
+.platform-card .place{font-size:2.2rem;font-weight:800;margin-bottom:4px}
+.place-1{color:var(--pink)}.place-2{color:var(--text-muted)}
+.platform-card ul{text-align:left;margin-top:16px}
+.niche-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:all .3s}
+.niche-card:hover{transform:translateY(-5px);border-color:var(--cyan)}
+.niche-card .rank{font-size:.75rem;font-weight:800;margin-bottom:10px;display:inline-block;padding:4px 10px;border-radius:999px}
+.rank-1{background:rgba(255,45,85,.2);color:var(--pink)}
+.rank-2{background:rgba(0,240,255,.15);color:var(--cyan)}
+.rank-3{background:rgba(168,85,247,.15);color:var(--purple)}
+.rank-other{background:rgba(251,191,36,.12);color:var(--yellow)}
+.niche-card h3{font-size:1.15rem;font-weight:700;margin-bottom:10px}
+.niche-tags{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.niche-tags span{font-size:.72rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--bg-elevated);color:var(--text-muted)}
+.niche-tags .good{background:rgba(52,211,153,.15);color:var(--green)}
+.niche-tags .hot{background:rgba(255,45,85,.15);color:var(--pink)}
+.generator-box{background:var(--bg-card);border:1px solid var(--border);border-radius:24px;padding:28px;margin-bottom:28px}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:22px}
+.form-group label{display:block;font-size:.8rem;font-weight:600;margin-bottom:6px;color:var(--text-muted)}
+.form-group input,.form-group select{width:100%;padding:13px 14px;background:var(--bg);border:2px solid var(--border);border-radius:12px;color:var(--text);font-size:.95rem;font-family:inherit}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--cyan)}
+.generator-actions{display:flex;gap:12px;flex-wrap:wrap}
+.result-box{display:none;margin-top:24px;background:var(--bg);border:1px solid var(--border);border-radius:18px;padding:22px}
+.result-box.active{display:block;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.result-section{margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.result-section:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.result-section h4{font-size:1rem;margin-bottom:10px}
+.result-content{background:var(--bg-card);border-radius:12px;padding:14px;font-size:.93rem;line-height:1.65;white-space:pre-wrap}
+.copy-btn{margin-top:10px;padding:8px 16px;font-size:.82rem;background:var(--bg-elevated);border:1px solid var(--border);color:var(--text-muted);border-radius:10px;cursor:pointer;font-weight:600}
+.copy-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.prompt-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:12px}
+.prompt-card h4{font-size:.95rem;margin-bottom:8px;color:var(--cyan)}
+.prompt-text{background:var(--bg);border-radius:10px;padding:12px;font-size:.86rem;color:var(--text-muted);margin-bottom:12px;line-height:1.5;white-space:pre-wrap}
+.steps{display:flex;flex-direction:column;gap:14px}
+.step{display:flex;gap:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:20px}
+.step-number{flex-shrink:0;width:42px;height:42px;background:linear-gradient(135deg,var(--pink),var(--purple));border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem}
+.step h3{font-size:1.05rem;margin-bottom:4px}.step p{color:var(--text-muted);font-size:.92rem}
+.checklist{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:24px}
+.checklist-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);cursor:pointer}
+.checklist-item:last-child{border-bottom:none}
+.checklist-item input{display:none}
+.checkmark{width:26px;height:26px;border:2px solid var(--border);border-radius:8px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center}
+.checklist-item input:checked+.checkmark{background:var(--green);border-color:var(--green)}
+.checklist-item input:checked+.checkmark::after{content:"✓";color:#0a0a0c;font-weight:800;font-size:.9rem}
+.checklist-item input:checked~.check-text{text-decoration:line-through;opacity:.6}
+.check-text strong{display:block;color:var(--text)}.check-text span{font-size:.88rem;color:var(--text-muted)}
+.tip-box{background:linear-gradient(135deg,rgba(255,45,85,.1),rgba(0,240,255,.06));border:1px solid rgba(255,45,85,.25);border-radius:18px;padding:22px;margin-top:24px}
+.tip-box h4{margin-bottom:8px;font-size:1rem}
+.cta{text-align:center;padding:60px 0 80px}
+.cta-box{background:linear-gradient(135deg,rgba(255,45,85,.15),rgba(168,85,247,.1));border:1px solid rgba(255,45,85,.3);border-radius:28px;padding:48px 32px}
+.cta-box h2{font-family:Space Grotesk,sans-serif;font-size:2rem;margin-bottom:12px}
+.cta-box p{color:var(--text-muted);margin-bottom:24px;max-width:420px;margin-left:auto;margin-right:auto}
+footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--text-muted);font-size:.9rem}
+@media(max-width:768px){nav{display:none}.platform-rec{grid-template-columns:1fr}.hero{padding:60px 0 50px}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container header-inner">
-      <div class="logo"><span>Cresce & Monetiza</span></div>
-      <nav>
-        <a href="#plataforma">Plataforma</a>
-        <a href="#nichos">Nichos</a>
-        <a href="#gerador">Gerador</a>
-        <a href="#perfis">Perfis</a>
-        <a href="#monetizacao">Monetização</a>
-        <a href="#checklist">Checklist</a>
-      </nav>
-      <a href="#gerador" class="btn btn-primary">Gerar agora</a>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="container">
-      <div class="hero-badge">Guia + Gerador + Nichos 2026</div>
-      <h1>Crie, cresça e monetize no<br><span class="gradient">TikTok e YouTube</span></h1>
-      <p>Descubra por onde começar, quais nichos estão em alta e gere bios, ideias e planos automaticamente.</p>
-      <div class="hero-buttons">
-        <a href="#plataforma" class="btn btn-primary">Por onde começar?</a>
-        <a href="#gerador" class="btn btn-outline">Abrir Gerador</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="plataforma" style="background:#0d0d0f">
-    <div class="container">
-      <div class="section-header">
-        <div class="tag">Decisão importante</div>
-        <h2>Por qual plataforma começar?</h2>
-        <p>Para a maioria dos iniciantes em 2026, a melhor ordem é esta:</p>
-      </div>
-      <div class="platform-rec">
-        <div class="platform-card recommended">
-          <div class="badge-rec">RECOMENDADO PARA COMEÇAR</div>
-          <div style="font-size:2.5rem;margin-top:8px">📱</div>
-          <h3>TikTok</h3>
-          <div class="score">1º</div>
-          <p style="color:var(--text-muted)">Comece por aqui</p>
-          <ul class="card" style="border:none;padding:0;background:transparent;text-align:left">
-            <li>Crescimento muito mais rápido</li>
-            <li>Algoritmo favorece contas novas</li>
-            <li>Ideal para testar ideias</li>
-            <li>Vídeos curtos = mais fácil</li>
-            <li>Bom para afiliados e TikTok Shop</li>
-          </ul>
-        </div>
-        <div class="platform-card">
-          <div style="font-size:2.5rem;margin-top:8px">▶️</div>
-          <h3>YouTube</h3>
-          <div class="score" style="color:var(--text-muted)">2º</div>
-          <p style="color:var(--text-muted)">Depois de validar</p>
-          <ul class="card" style="border:none;padding:0;background:transparent;text-align:left">
-            <li>Paga muito mais por view</li>
-            <li>Conteúdo dura anos</li>
-            <li>Melhor para autoridade</li>
-            <li>Exige mais produção</li>
-            <li>Use Shorts + vídeos longos</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tip-box">
-        <h4>📌 Estratégia vencedora em 2026</h4>
-        <p style="color:var(--text-muted);font-size:.95rem">
-          <strong>1.</strong> Poste no TikTok (e YouTube Shorts) para crescer rápido.<br>
-          <strong>2.</strong> Depois de 2–4 meses, leve o melhor conteúdo para YouTube longo e monetize melhor.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="nichos">
-    <div class="container">
-      <div class="section-header">
-        <div class="tag">2026</div>
-        <h2>Nichos em alta agora</h2>
-        <p>Análise dos nichos com maior potencial de crescimento e monetização.</p>
-      </div>
-      <div class="grid-3">
-        <div class="niche-card">
-          <div class="rank">#1 MAIS LUCRATIVO</div>
-          <h3>💰 Finanças Pessoais</h3>
-          <div class="niche-meta"><span class="high">Renda Alta</span><span class="med">Saturação Média</span><span>TikTok + YouTube</span></div>
-          <p>Maior RPM. Subnichos: finanças para CLT, investir com pouco, sair das dívidas.</p>
-        </div>
-        <div class="niche-card">
-          <div class="rank">#2 MAIS EM ALTA</div>
-          <h3>🤖 Ferramentas de IA</h3>
-          <div class="niche-meta"><span class="high">Renda Alta</span><span class="high">Crescimento Alto</span><span>Fácil Faceless</span></div>
-          <p>Explosão de demanda. Conteúdo fácil (tela + voz). Afiliados pagam bem.</p>
-        </div>
-        <div class="niche-card">
-          <div class="rank">#3 EQUILIBRADO</div>
-          <h3>📈 Produtividade & Empreendedorismo</h3>
-          <div class="niche-meta"><span class="high">Renda Boa</span><span class="med">Saturação Média</span><span>Fácil Faceless</span></div>
-          <p>Público compra cursos e ferramentas. Ótimo para produtos digitais.</p>
-        </div>
-        <div class="niche-card">
-          <div class="rank">#4 CRESCENDO</div>
-          <h3>🧬 Saúde & Longevidade</h3>
-          <div class="niche-meta"><span class="high">Renda Boa</span><span class="med">Saturação Média</span><span>TikTok + YouTube</span></div>
-          <p>Biohacking, sono e hábitos. Público engajado e disposto a comprar.</p>
-        </div>
-        <div class="niche-card">
-          <div class="rank">#5 FÁCIL DE VIRALIZAR</div>
-          <h3>📖 Histórias & Storytelling</h3>
-          <div class="niche-meta"><span class="med">Renda Média</span><span class="high">Crescimento Alto</span><span>Muito Fácil Faceless</span></div>
-          <p>True crime e narrações performam muito bem no TikTok.</p>
-        </div>
-        <div class="niche-card">
-          <div class="rank">#6 BOM PARA SHOP</div>
-          <h3>🍳 Cozinha & Receitas</h3>
-          <div class="niche-meta"><span class="med">Renda Média</span><span class="med">Saturação Média</span><span>TikTok Shop</span></div>
-          <p>Ótimo para TikTok Shop e afiliados de utensílios.</p>
-        </div>
-      </div>
-      <div class="tip-box">
-        <h4>💡 Como escolher seu nicho</h4>
-        <p style="color:var(--text-muted);font-size:.95rem">Priorize: (1) afinidade, (2) demanda e monetização clara, (3) capacidade de produzir com consistência.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="gerador" style="background:#0d0d0f">
-    <div class="container">
-      <div class="section-header">
-        <div class="tag">Ferramenta principal</div>
-        <h2>Gerador inteligente</h2>
-        <p>Gere bios, ideias, hooks, plano de 7 dias e checklist.</p>
-      </div>
-      <div class="generator-box">
-        <div class="form-grid">
-          <div class="form-group"><label>Seu nicho / tema</label><input type="text" id="nicho" placeholder="Ex: finanças para jovens, ferramentas de IA..."></div>
-          <div class="form-group"><label>Seu nome ou @</label><input type="text" id="nome" placeholder="Ex: João, @joaofinancas"></div>
-          <div class="form-group"><label>Tom de voz</label><select id="tom"><option value="descontraido">Descontraído</option><option value="profissional">Profissional</option><option value="motivacional">Motivacional</option><option value="educativo">Educativo</option><option value="humor">Com humor</option></select></div>
-          <div class="form-group"><label>Objetivo</label><select id="objetivo"><option value="crescer">Crescer rápido</option><option value="monetizar">Monetizar</option><option value="autoridade">Autoridade</option><option value="comunidade">Comunidade</option></select></div>
-          <div class="form-group"><label>Plataforma principal</label><select id="plataforma"><option value="tiktok">TikTok (recomendado)</option><option value="youtube">YouTube</option><option value="ambos">Ambos</option></select></div>
-        </div>
-        <div class="generator-actions">
-          <button class="btn btn-primary" onclick="gerarTudo()">✨ Gerar tudo</button>
-          <button class="btn btn-outline" onclick="limparResultados()">Limpar</button>
-        </div>
-        <div id="resultados" class="result-box">
-          <div class="result-section"><h4>📱 Bio TikTok</h4><div class="result-content" id="bio-tiktok"></div><button class="copy-btn" onclick="copiar('bio-tiktok')">Copiar</button></div>
-          <div class="result-section"><h4>▶️ Bio YouTube</h4><div class="result-content" id="bio-youtube"></div><button class="copy-btn" onclick="copiar('bio-youtube')">Copiar</button></div>
-          <div class="result-section"><h4>💡 10 Ideias</h4><div class="result-content" id="ideias"></div><button class="copy-btn" onclick="copiar('ideias')">Copiar</button></div>
-          <div class="result-section"><h4>🔥 5 Hooks</h4><div class="result-content" id="hooks"></div><button class="copy-btn" onclick="copiar('hooks')">Copiar</button></div>
-          <div class="result-section"><h4>📅 Plano 7 dias</h4><div class="result-content" id="plano"></div><button class="copy-btn" onclick="copiar('plano')">Copiar</button></div>
-          <div class="result-section"><h4>✅ Checklist</h4><div class="result-content" id="checklist-gerado"></div><button class="copy-btn" onclick="copiar('checklist-gerado')">Copiar</button></div>
-        </div>
-      </div>
-      <div class="section-header" style="margin-top:50px"><div class="tag">Potência máxima</div><h2>Prompts para o Grok</h2></div>
-      <div class="prompt-card"><h4>1. Roteiro de vídeo</h4><div class="prompt-text" id="prompt1">Atue como especialista em conteúdo viral para TikTok e YouTube Shorts.
-Meu nicho é: [SEU NICHO].
-Crie um roteiro de 45-60s com hook forte, valor e CTA. Inclua legenda e hashtags.</div><button class="copy-btn" onclick="copiar('prompt1')">Copiar</button></div>
-      <div class="prompt-card"><h4>2. Monetização</h4><div class="prompt-text" id="prompt2">Sou criador no nicho de [SEU NICHO] com [X] seguidores.
-Me dê as 5 melhores formas de monetizar com passos práticos.</div><button class="copy-btn" onclick="copiar('prompt2')">Copiar</button></div>
-      <div class="prompt-card"><h4>3. Análise de nicho</h4><div class="prompt-text" id="prompt3">Analise o nicho "[SEU NICHO]" no TikTok e YouTube em 2026: concorrência, potencial, formatos e 15 ideias de vídeos.</div><button class="copy-btn" onclick="copiar('prompt3')">Copiar</button></div>
-      <div class="prompt-card"><h4>4. Plano 30 dias</h4><div class="prompt-text" id="prompt4">Crie um plano de 30 dias para crescer no TikTok e YouTube no nicho de [SEU NICHO].</div><button class="copy-btn" onclick="copiar('prompt4')">Copiar</button></div>
-      <p style="text-align:center;margin-top:24px;color:var(--text-muted)">Abra <a href="https://grok.x.ai" target="_blank" style="color:var(--accent-2)">grok.x.ai</a> e cole o prompt.</p>
-    </div>
-  </section>
-
-  <section id="perfis">
-    <div class="container">
-      <div class="section-header"><div class="tag">Passo 1</div><h2>Perfis otimizados</h2></div>
-      <div class="grid-2">
-        <div class="card"><div class="card-icon">📱</div><h3>TikTok</h3><ul><li>Foto clara</li><li>@ curto</li><li>Bio com valor + link</li><li>Vídeo fixado</li></ul></div>
-        <div class="card"><div class="card-icon">▶️</div><h3>YouTube</h3><ul><li>Nome claro</li><li>Banner 2560x1440</li><li>Descrição com keywords</li><li>Trailer + seções</li></ul></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="crescimento" style="background:#0d0d0f">
-    <div class="container">
-      <div class="section-header"><div class="tag">Passo 2</div><h2>Crescimento</h2></div>
-      <div class="steps">
-        <div class="step"><div class="step-number">1</div><div><h3>Nicho claro</h3><p>Não fale de tudo.</p></div></div>
-        <div class="step"><div class="step-number">2</div><div><h3>Consistência</h3><p>TikTok 1-3/dia · YouTube 2-4/semana</p></div></div>
-        <div class="step"><div class="step-number">3</div><div><h3>Hooks</h3><p>Os 3 primeiros segundos decidem.</p></div></div>
-        <div class="step"><div class="step-number">4</div><div><h3>Dados</h3><p>Retenção e compartilhamentos.</p></div></div>
-        <div class="step"><div class="step-number">5</div><div><h3>Interação</h3><p>Responda e use tendências.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="monetizacao">
-    <div class="container">
-      <div class="section-header"><div class="tag">Passo 3</div><h2>Monetização</h2></div>
-      <div class="grid-3">
-        <div class="card"><h3>💰 Fundo + LIVE</h3><p>TikTok – views e presentes</p></div>
-        <div class="card"><h3>▶️ YouTube Partner</h3><p>Anúncios, membros, Shorts</p></div>
-        <div class="card"><h3>🤝 Afiliados</h3><p>Hotmart, Amazon, marcas</p></div>
-        <div class="card"><h3>📦 Produtos digitais</h3><p>Cursos, ebooks, planilhas</p></div>
-        <div class="card"><h3>🎁 Lives</h3><p>Presentes e doações</p></div>
-        <div class="card"><h3>🔗 Tráfego cruzado</h3><p>Shorts → YouTube longo</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="checklist" style="background:#0d0d0f">
-    <div class="container">
-      <div class="section-header"><div class="tag">Ferramenta</div><h2>Checklist</h2></div>
-      <div class="checklist">
-        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Escolher plataforma (TikTok primeiro)</strong><span>Comece pelo TikTok + Shorts</span></div></label>
-        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Definir o nicho</strong><span>Finanças, IA, produtividade...</span></div></label>
-        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Criar contas com mesmo @</strong><span>TikTok e YouTube</span></div></label>
-        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Otimizar foto, bio e links</strong><span>Use o gerador</span></div></label>
-        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Postar os 7 primeiros vídeos</strong><span>Consistência > perfeição</span></div></label>
-        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Analisar métricas</strong><span>Retenção e compartilhamentos</span></div></label>
-        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Configurar monetização</strong><span>Quando atingir os requisitos</span></div></label>
-        <label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Criar produto ou afiliado</strong><span>Comece simples</span></div></label>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="container">
-      <div class="cta-box">
-        <h2>Agora é com você</h2>
-        <p>Escolha a plataforma, defina o nicho, use o gerador e comece a postar hoje.</p>
-        <a href="#gerador" class="btn btn-primary">Ir para o Gerador</a>
-      </div>
-    </div>
-  </section>
-
-  <footer><div class="container"><p>Cresce & Monetiza — Guia + Gerador + Nichos 2026</p></div></footer>
-
-  <script>
-    document.querySelectorAll('.checklist-item input').forEach((c,i)=>{const k='checklist-item-'+i;c.checked=localStorage.getItem(k)==='true';c.addEventListener('change',()=>localStorage.setItem(k,c.checked));});
-    function copiar(id){const el=document.getElementById(id);navigator.clipboard.writeText(el.innerText).then(()=>{const b=el.nextElementSibling;if(b&&b.classList.contains('copy-btn')){const o=b.innerText;b.innerText='Copiado!';setTimeout(()=>b.innerText=o,1500);}})}
-    function limparResultados(){document.getElementById('resultados').classList.remove('active')}
-    function gerarTudo(){
-      const nicho=document.getElementById('nicho').value.trim()||'seu nicho';
-      const nome=document.getElementById('nome').value.trim()||'seu nome';
-      const tom=document.getElementById('tom').value;
-      const objetivo=document.getElementById('objetivo').value;
-      const plataforma=document.getElementById('plataforma').value;
-      const tomText={descontraido:'descontraído',profissional:'profissional',motivacional:'motivacional',educativo:'educativo',humor:'com humor'}[tom];
-      document.getElementById('bio-tiktok').innerText=nome+' | '+nicho+'\nTe ajudo a evoluir de forma '+tomText+'.\n👇 Começa por aqui';
-      document.getElementById('bio-youtube').innerText='Bem-vindo ao canal de '+nome+'!\n\nConteúdo sobre '+nicho+' de forma '+tomText+'.\n\n• Dicas práticas\n• Estratégias que funcionam\n\nSe inscreva e ative o sininho.';
-      let ideias=['1. "O erro que 90% cometem em '+nicho+'"','2. "Como comecei em '+nicho+' do zero"','3. "3 dicas rápidas de '+nicho+'"','4. "O que eu faria se recomeçasse"','5. "Mitos vs Verdades sobre '+nicho+'"','6. "Ferramentas gratuitas"','7. "Rotina real"','8. "Perguntas de iniciantes"','9. "O que mudou quando foquei"','10. "Passo a passo para começar"'];
-      if(objetivo==='monetizar'){ideias[2]='3. "Como transformar '+nicho+' em renda"';ideias[8]='9. "Formas reais de ganhar"';}
-      document.getElementById('ideias').innerText=ideias.join('\n');
-      document.getElementById('hooks').innerText=['1. "Se você ainda acredita nisso sobre '+nicho+'..."','2. "Eu perdi meses fazendo errado. Aqui o que funciona."','3. "Ninguém te fala isso sobre '+nicho+'..."','4. "Pare de cometer esse erro."','5. "Em 30 segundos o que demorei meses."'].join('\n');
-      let plano='Dia 1: Perfil + bio + link\nDia 2: 2 vídeos de valor\nDia 3: Hook forte + dúvida comum\nDia 4: Analisar e repostar\nDia 5: Apresentação + educativo\nDia 6: Interagir + 1 vídeo\nDia 7: Revisar métricas';
-      if(plataforma==='tiktok') plano+='\n\nFoco: TikTok + Shorts. Volume alto.';
-      document.getElementById('plano').innerText=plano;
-      document.getElementById('checklist-gerado').innerText='☐ Sub-nicho de '+nicho+'\n☐ @ igual no TikTok e YouTube\n☐ Bio otimizada\n☐ Link na bio\n☐ 3 vídeos de teste\n☐ Postar 7 dias seguidos\n☐ Responder comentários\n☐ Analisar retenção\n☐ Afiliado ou produto\n☐ Usar Grok nos roteiros';
-      document.getElementById('resultados').classList.add('active');
-      document.getElementById('resultados').scrollIntoView({behavior:'smooth'});
-    }
-  </script>
+<div class="bg-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+<header><div class="container header-inner"><div class="logo">Cresce & Monetiza 🚀</div><nav><a href="#plataforma">Plataforma</a><a href="#nichos">Nichos</a><a href="#gerador">Gerador</a><a href="#checklist">Checklist</a></nav><a href="#gerador" class="btn btn-primary">Gerar agora ✨</a></div></header>
+<section class="hero"><div class="container"><div class="hero-badge">🔥 Guia + Gerador + Nichos 2026</div><h1>Crie, cresça e<br><span class="grad">monetize de verdade</span></h1><p>Descubra por onde começar, quais nichos estão bombando e gere tudo o que precisa em segundos.</p><div class="hero-buttons"><a href="#plataforma" class="btn btn-primary">Por onde começar? 👀</a><a href="#gerador" class="btn btn-outline">Abrir Gerador</a></div></div></section>
+<section id="plataforma" style="background:rgba(0,0,0,.3)"><div class="container"><div class="section-header"><div class="tag tag-pink">Decisão importante</div><h2>Por qual plataforma começar?</h2><p>Spoiler: a maioria dos iniciantes ganha mais tempo começando pelo TikTok.</p></div><div class="platform-rec"><div class="platform-card winner"><div class="badge">🏆 RECOMENDADO</div><div class="emoji-big">📱</div><h3>TikTok</h3><div class="place place-1">1º lugar</div><p style="color:var(--text-muted);font-size:.9rem;margin-bottom:8px">Comece por aqui</p><ul class="card" style="border:none;padding:0;background:transparent"><li>Crescimento muito mais rápido</li><li>Algoritmo ama contas novas</li><li>Perfeito para testar ideias</li><li>Vídeos curtos = mais fácil</li><li>Afiliados + TikTok Shop</li></ul></div><div class="platform-card"><div class="emoji-big">▶️</div><h3>YouTube</h3><div class="place place-2">2º lugar</div><p style="color:var(--text-muted);font-size:.9rem;margin-bottom:8px">Depois de validar</p><ul class="card" style="border:none;padding:0;background:transparent"><li>Paga bem mais por view</li><li>Conteúdo dura anos</li><li>Melhor para autoridade</li><li>Exige mais produção</li><li>Shorts + vídeos longos</li></ul></div></div><div class="tip-box"><h4>📌 Estratégia que funciona em 2026</h4><p style="color:var(--text-muted);font-size:.95rem"><strong>1.</strong> Poste no TikTok (+ YouTube Shorts) → cresça rápido.<br><strong>2.</strong> Depois de 2–4 meses, leve o melhor pro YouTube longo.</p></div></div></section>
+<section id="nichos"><div class="container"><div class="section-header"><div class="tag tag-cyan">Em alta 2026</div><h2>Nichos que estão bombando</h2><p>Escolha um que combine com você e tenha potencial de dinheiro.</p></div><div class="grid-3"><div class="niche-card"><div class="rank rank-1">#1 MAIS LUCRATIVO</div><h3>💰 Finanças Pessoais</h3><div class="niche-tags"><span class="good">Renda Alta</span><span class="hot">Hot</span><span>TikTok + YT</span></div><p>Maior RPM. Subnichos: finanças pra CLT, investir com pouco, sair das dívidas.</p></div><div class="niche-card"><div class="rank rank-2">#2 MAIS EM ALTA</div><h3>🤖 Ferramentas de IA</h3><div class="niche-tags"><span class="good">Renda Alta</span><span class="hot">Explosivo</span><span>Fácil faceless</span></div><p>Demanda explodindo. Conteúdo fácil (tela + voz). Afiliados pagam bem.</p></div><div class="niche-card"><div class="rank rank-3">#3 EQUILIBRADO</div><h3>📈 Produtividade</h3><div class="niche-tags"><span class="good">Renda Boa</span><span>Fácil faceless</span></div><p>Público compra cursos e ferramentas. Ótimo pra produtos digitais.</p></div><div class="niche-card"><div class="rank rank-other">#4 CRESCENDO</div><h3>🧬 Saúde & Longevidade</h3><div class="niche-tags"><span class="good">Renda Boa</span><span>TikTok + YT</span></div><p>Biohacking, sono e hábitos. Público engajado.</p></div><div class="niche-card"><div class="rank rank-other">#5 FÁCIL DE VIRALIZAR</div><h3>📖 Histórias</h3><div class="niche-tags"><span class="hot">Viral</span><span>Muito fácil</span></div><p>True crime e narrações performam muito bem no TikTok.</p></div><div class="niche-card"><div class="rank rank-other">#6 BOM PRO SHOP</div><h3>🍳 Cozinha</h3><div class="niche-tags"><span>TikTok Shop</span><span>Visual</span></div><p>Ótimo pra TikTok Shop e afiliados de utensílios.</p></div></div></div></section>
+<section id="gerador" style="background:rgba(0,0,0,.3)"><div class="container"><div class="section-header"><div class="tag tag-purple">Ferramenta mágica</div><h2>Gerador inteligente ✨</h2><p>Preencha e receba bios, ideias, hooks e plano de 7 dias na hora.</p></div><div class="generator-box"><div class="form-grid"><div class="form-group"><label>Seu nicho</label><input type="text" id="nicho" placeholder="Ex: finanças, ferramentas de IA..."></div><div class="form-group"><label>Seu nome ou @</label><input type="text" id="nome" placeholder="Ex: João, @joaofinancas"></div><div class="form-group"><label>Tom de voz</label><select id="tom"><option value="descontraido">Descontraído</option><option value="profissional">Profissional</option><option value="motivacional">Motivacional</option><option value="educativo">Educativo</option><option value="humor">Com humor</option></select></div><div class="form-group"><label>Objetivo</label><select id="objetivo"><option value="crescer">Crescer rápido</option><option value="monetizar">Monetizar</option><option value="autoridade">Autoridade</option><option value="comunidade">Comunidade</option></select></div><div class="form-group"><label>Plataforma</label><select id="plataforma"><option value="tiktok">TikTok 📱 (recomendado)</option><option value="youtube">YouTube ▶️</option><option value="ambos">Ambos</option></select></div></div><div class="generator-actions"><button class="btn btn-cyan" onclick="gerarTudo()">✨ Gerar tudo agora</button><button class="btn btn-outline" onclick="limparResultados()">Limpar</button></div><div id="resultados" class="result-box"><div class="result-section"><h4>📱 Bio TikTok</h4><div class="result-content" id="bio-tiktok"></div><button class="copy-btn" onclick="copiar('bio-tiktok')">Copiar</button></div><div class="result-section"><h4>▶️ Bio YouTube</h4><div class="result-content" id="bio-youtube"></div><button class="copy-btn" onclick="copiar('bio-youtube')">Copiar</button></div><div class="result-section"><h4>💡 10 Ideias</h4><div class="result-content" id="ideias"></div><button class="copy-btn" onclick="copiar('ideias')">Copiar</button></div><div class="result-section"><h4>🔥 5 Hooks</h4><div class="result-content" id="hooks"></div><button class="copy-btn" onclick="copiar('hooks')">Copiar</button></div><div class="result-section"><h4>📅 Plano 7 dias</h4><div class="result-content" id="plano"></div><button class="copy-btn" onclick="copiar('plano')">Copiar</button></div><div class="result-section"><h4>✅ Checklist</h4><div class="result-content" id="checklist-gerado"></div><button class="copy-btn" onclick="copiar('checklist-gerado')">Copiar</button></div></div></div><div class="section-header" style="margin-top:48px"><div class="tag tag-cyan">Nível pro</div><h2>Prompts prontos pro Grok</h2></div><div class="prompt-card"><h4>1. Roteiro de vídeo viral</h4><div class="prompt-text" id="prompt1">Atue como especialista em conteúdo viral para TikTok e YouTube Shorts.\nMeu nicho é: [SEU NICHO].\nCrie um roteiro de 45-60s com hook forte, valor real e CTA. Inclua legenda e 5 hashtags.</div><button class="copy-btn" onclick="copiar('prompt1')">Copiar prompt</button></div><div class="prompt-card"><h4>2. Estratégia de monetização</h4><div class="prompt-text" id="prompt2">Sou criador no nicho de [SEU NICHO] com [X] seguidores.\nMe dê as 5 melhores formas de monetizar com passos práticos.</div><button class="copy-btn" onclick="copiar('prompt2')">Copiar prompt</button></div><div class="prompt-card"><h4>3. Análise de nicho</h4><div class="prompt-text" id="prompt3">Analise o nicho "[SEU NICHO]" no TikTok e YouTube em 2026: concorrência, potencial, formatos e 15 ideias de vídeos.</div><button class="copy-btn" onclick="copiar('prompt3')">Copiar prompt</button></div><div class="prompt-card"><h4>4. Plano de 30 dias</h4><div class="prompt-text" id="prompt4">Crie um plano detalhado de 30 dias para crescer no TikTok e YouTube no nicho de [SEU NICHO].</div><button class="copy-btn" onclick="copiar('prompt4')">Copiar prompt</button></div><p style="text-align:center;margin-top:20px;color:var(--text-muted)">Abra o Grok → <a href="https://grok.x.ai" target="_blank" style="color:var(--cyan)">grok.x.ai</a></p></div></section>
+<section id="perfis"><div class="container"><div class="section-header"><div class="tag tag-pink">Passo 1</div><h2>Perfis otimizados</h2></div><div class="grid-2"><div class="card"><div class="card-icon" style="background:linear-gradient(135deg,rgba(255,45,85,.2),rgba(0,240,255,.1))">📱</div><h3>TikTok</h3><ul><li>Foto clara do rosto ou logo</li><li>@ curto e fácil de lembrar</li><li>Bio: o que você faz + valor + link</li><li>Vídeo fixado</li></ul></div><div class="card"><div class="card-icon" style="background:rgba(255,0,0,.15)">▶️</div><h3>YouTube</h3><ul><li>Nome claro e ligado ao nicho</li><li>Banner 2560×1440px</li><li>Descrição com palavras-chave</li><li>Trailer + seções</li></ul></div></div></div></section>
+<section id="crescimento" style="background:rgba(0,0,0,.3)"><div class="container"><div class="section-header"><div class="tag tag-cyan">Passo 2</div><h2>Crescer de verdade</h2></div><div class="steps"><div class="step"><div class="step-number">1</div><div><h3>Nicho claro</h3><p>Não tente falar de tudo.</p></div></div><div class="step"><div class="step-number">2</div><div><h3>Consistência</h3><p>TikTok: 1–3/dia · YouTube: 2–4/semana</p></div></div><div class="step"><div class="step-number">3</div><div><h3>Hooks fortes</h3><p>Os 3 primeiros segundos decidem.</p></div></div><div class="step"><div class="step-number">4</div><div><h3>Olhe os dados</h3><p>Retenção e compartilhamentos.</p></div></div><div class="step"><div class="step-number">5</div><div><h3>Interaja</h3><p>Responda comentários e use tendências.</p></div></div></div></div></section>
+<section id="monetizacao"><div class="container"><div class="section-header"><div class="tag tag-yellow">Passo 3</div><h2>Como transformar views em grana</h2></div><div class="grid-3"><div class="card"><div class="card-icon" style="background:rgba(52,211,153,.15)">💰</div><h3>Fundo + LIVE</h3><p>TikTok – recompensas por views e presentes.</p></div><div class="card"><div class="card-icon" style="background:rgba(255,0,0,.12)">▶️</div><h3>YouTube Partner</h3><p>Anúncios, Super Chat, membros e Shorts.</p></div><div class="card"><div class="card-icon" style="background:rgba(168,85,247,.15)">🤝</div><h3>Afiliados</h3><p>Hotmart, Amazon e collabs com marcas.</p></div><div class="card"><div class="card-icon" style="background:rgba(0,240,255,.12)">📦</div><h3>Produtos digitais</h3><p>Cursos, ebooks, planilhas e mentorias.</p></div><div class="card"><div class="card-icon" style="background:rgba(251,191,36,.12)">🎁</div><h3>Lives</h3><p>Presentes e doações em lives engajadas.</p></div><div class="card"><div class="card-icon" style="background:rgba(255,45,85,.12)">🔗</div><h3>Tráfego cruzado</h3><p>Shorts/TikTok → YouTube longo e site.</p></div></div></div></section>
+<section id="checklist" style="background:rgba(0,0,0,.3)"><div class="container"><div class="section-header"><div class="tag tag-purple">Ferramenta</div><h2>Checklist pra não esquecer nada</h2><p>Marque conforme for fazendo. Fica salvo no navegador.</p></div><div class="checklist"><label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Escolher plataforma (TikTok primeiro)</strong><span>Comece pelo TikTok + Shorts</span></div></label><label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Definir o nicho</strong><span>Finanças, IA, produtividade...</span></div></label><label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Criar contas com o mesmo @</strong><span>TikTok e YouTube</span></div></label><label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Otimizar foto, bio e links</strong><span>Use o gerador acima</span></div></label><label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Postar os 7 primeiros vídeos</strong><span>Consistência > perfeição</span></div></label><label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Analisar métricas da 1ª semana</strong><span>Retenção e compartilhamentos</span></div></label><label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Configurar monetização</strong><span>Quando atingir os requisitos</span></div></label><label class="checklist-item"><input type="checkbox"><span class="checkmark"></span><div class="check-text"><strong>Criar produto ou afiliado</strong><span>Comece simples</span></div></label></div></div></section>
+<section class="cta"><div class="container"><div class="cta-box"><h2>Bora começar? 🚀</h2><p>Escolha a plataforma, defina o nicho, use o gerador e poste hoje.</p><a href="#gerador" class="btn btn-primary">Ir pro Gerador ✨</a></div></div></section>
+<footer><div class="container"><p>Cresce & Monetiza 🚀 — Feito pra quem quer transformar criatividade em renda</p></div></footer>
+<script>
+document.querySelectorAll('.checklist-item input').forEach((c,i)=>{const k='cm-check-'+i;c.checked=localStorage.getItem(k)==='true';c.addEventListener('change',()=>localStorage.setItem(k,c.checked));});
+function copiar(id){const el=document.getElementById(id);navigator.clipboard.writeText(el.innerText).then(()=>{const b=el.nextElementSibling;if(b&&b.classList.contains('copy-btn')){const o=b.innerText;b.innerText='Copiado! ✓';setTimeout(()=>b.innerText=o,1500);}});}
+function limparResultados(){document.getElementById('resultados').classList.remove('active');}
+function gerarTudo(){const nicho=document.getElementById('nicho').value.trim()||'seu nicho';const nome=document.getElementById('nome').value.trim()||'seu nome';const tom=document.getElementById('tom').value;const objetivo=document.getElementById('objetivo').value;const plataforma=document.getElementById('plataforma').value;const tomText={descontraido:'descontraído',profissional:'profissional',motivacional:'motivacional',educativo:'educativo',humor:'com humor'}[tom];document.getElementById('bio-tiktok').innerText=nome+' | '+nicho+'\nTe ajudo a evoluir de forma '+tomText+'.\n👇 Começa por aqui';document.getElementById('bio-youtube').innerText='Bem-vindo ao canal de '+nome+'!\n\nConteúdo sobre '+nicho+' de forma '+tomText+'.\n\n• Dicas práticas\n• Estratégias que funcionam\n\nSe inscreva e ative o sininho 🔔';let ideias=['1. "O erro que 90% cometem em '+nicho+'"','2. "Como comecei em '+nicho+' do zero"','3. "3 dicas rápidas de '+nicho+'"','4. "O que eu faria se recomeçasse"','5. "Mitos vs Verdades sobre '+nicho+'"','6. "Ferramentas gratuitas pra '+nicho+'"','7. "Rotina real de quem leva a sério"','8. "Perguntas que todo iniciante faz"','9. "O que mudou quando foquei nisso"','10. "Passo a passo pra começar essa semana"'];if(objetivo==='monetizar'){ideias[2]='3. "Como transformar '+nicho+' em renda"';ideias[8]='9. "Formas reais de ganhar com '+nicho+'"';}document.getElementById('ideias').innerText=ideias.join('\n');document.getElementById('hooks').innerText=['1. "Se você ainda acredita nisso sobre '+nicho+', assista até o final."','2. "Eu perdi meses fazendo errado. Aqui o que funciona de verdade."','3. "Ninguém te fala isso sobre '+nicho+'..."','4. "Pare de cometer esse erro em '+nicho+'."','5. "Em 30 segundos o que demorei meses pra aprender."'].join('\n');let plano='Dia 1: Perfil + bio + link\nDia 2: 2 vídeos de valor\nDia 3: Hook forte + dúvida comum\nDia 4: Analisar e repostar o melhor\nDia 5: Apresentação + educativo\nDia 6: Interagir + 1 vídeo\nDia 7: Revisar métricas e planejar';if(plataforma==='tiktok')plano+='\n\nFoco: TikTok + Shorts. Volume alto.';document.getElementById('plano').innerText=plano;document.getElementById('checklist-gerado').innerText='☐ Definir sub-nicho de '+nicho+'\n☐ Criar @ igual no TikTok e YouTube\n☐ Escrever bio otimizada\n☐ Colocar link na bio\n☐ Gravar 3 vídeos de teste\n☐ Postar todos os dias por 7 dias\n☐ Responder comentários\n☐ Analisar retenção\n☐ Criar afiliado ou produto\n☐ Usar Grok nos próximos roteiros';document.getElementById('resultados').classList.add('active');document.getElementById('resultados').scrollIntoView({behavior:'smooth',block:'start'});}
+</script>
 </body>
 </html>
