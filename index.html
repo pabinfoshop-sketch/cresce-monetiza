@@ -1,206 +1,184 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cresce & Monetiza | Estúdio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b0b10; --card: #14141c; --elevated: #1c1c28; --text: #f0f0f5;
-      --muted: #8b8b9e; --accent: #7c5cfc; --blue: #38bdf8; --green: #34d399; --border: #2a2a3a;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.5; min-height: 100vh; }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 16px; }
-    header { display: flex; justify-content: space-between; align-items: center; padding: 12px 0 20px; }
-    .logo { font-weight: 800; font-size: 1.1rem; background: linear-gradient(90deg, #7c5cfc, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin-bottom: 14px; }
-    .card h2 { font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; color: var(--blue); }
-    label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--muted); margin-bottom: 5px; }
-    input, select, textarea { width: 100%; padding: 12px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 0.95rem; font-family: inherit; margin-bottom: 12px; }
-    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--blue); }
-    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 14px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer; font-family: inherit; }
-    .btn-main { background: linear-gradient(135deg, #7c5cfc, #6366f1); color: #fff; }
-    .btn-main:active { opacity: 0.9; }
-    .tabs { display: flex; gap: 6px; overflow-x: auto; margin-bottom: 14px; padding-bottom: 2px; -webkit-overflow-scrolling: touch; }
-    .tab { flex-shrink: 0; padding: 10px 16px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; font-family: inherit; }
-    .tab.on { background: rgba(124,92,252,0.2); color: #c4b5fd; border-color: var(--accent); }
-    .panel { display: none; } .panel.on { display: block; }
-    .out { display: none; margin-top: 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
-    .out.show { display: block; }
-    .block { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-    .block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-    .block h3 { font-size: 0.8rem; color: var(--blue); margin-bottom: 8px; }
-    .txt { background: var(--card); border-radius: 10px; padding: 12px; font-size: 0.9rem; white-space: pre-wrap; line-height: 1.55; }
-    .copy { margin-top: 8px; padding: 8px 14px; font-size: 0.8rem; background: var(--elevated); border: 1px solid var(--border); color: var(--muted); border-radius: 8px; cursor: pointer; font-weight: 600; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-    .chip { padding: 8px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; border: 1px solid var(--border); background: var(--elevated); color: var(--text); cursor: pointer; }
-    footer { text-align: center; padding: 24px 0 32px; color: var(--muted); font-size: 0.8rem; }
-    @media (max-width: 500px) { .row { grid-template-columns: 1fr; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cresce & Monetiza | Estúdio + IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b10;--card:#14141c;--elevated:#1c1c28;--text:#f0f0f5;--muted:#8b8b9e;--accent:#7c5cfc;--blue:#38bdf8;--green:#34d399;--border:#2a2a3a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh}
+.wrap{max-width:720px;margin:0 auto;padding:16px}
+header{padding:12px 0 18px}
+.logo{font-weight:800;font-size:1.1rem;background:linear-gradient(90deg,#7c5cfc,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:14px}
+.card h2{font-size:.95rem;font-weight:700;margin-bottom:14px;color:var(--blue)}
+label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:5px}
+input,select{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:.95rem;font-family:inherit;margin-bottom:12px}
+input:focus,select:focus{outline:none;border-color:var(--blue)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:14px;border-radius:12px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;font-family:inherit;text-decoration:none;color:inherit}
+.btn-main{background:linear-gradient(135deg,#7c5cfc,#6366f1);color:#fff}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:14px;-webkit-overflow-scrolling:touch}
+.tab{flex-shrink:0;padding:10px 14px;border-radius:999px;font-size:.82rem;font-weight:600;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-family:inherit}
+.tab.on{background:rgba(124,92,252,.2);color:#c4b5fd;border-color:var(--accent)}
+.panel{display:none}.panel.on{display:block}
+.out{display:none;margin-top:14px;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px}
+.out.show{display:block}
+.block{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.block:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.block h3{font-size:.8rem;color:var(--blue);margin-bottom:8px}
+.txt{background:var(--card);border-radius:10px;padding:12px;font-size:.9rem;white-space:pre-wrap;line-height:1.55}
+.copy{margin-top:8px;padding:8px 14px;font-size:.8rem;background:var(--elevated);border:1px solid var(--border);color:var(--muted);border-radius:8px;cursor:pointer;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{padding:8px 12px;border-radius:999px;font-size:.8rem;font-weight:600;border:1px solid var(--border);background:var(--elevated);color:var(--text);cursor:pointer}
+.tool{display:flex;gap:12px;align-items:flex-start;padding:14px;background:var(--bg);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;text-decoration:none;color:inherit}
+.tool-ico{flex-shrink:0;width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:var(--elevated)}
+.tool h3{font-size:.95rem;margin-bottom:2px}.tool p{font-size:.8rem;color:var(--muted)}
+.tool .tag{display:inline-block;margin-top:6px;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(124,92,252,.15);color:#c4b5fd}
+.tool .tag.free{background:rgba(52,211,153,.15);color:var(--green)}
+.step-flow{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.step-flow div{display:flex;gap:10px;align-items:center;font-size:.88rem;color:var(--muted)}
+.step-flow span{width:24px;height:24px;border-radius:8px;flex-shrink:0;background:var(--accent);color:#fff;font-weight:800;font-size:.75rem;display:flex;align-items:center;justify-content:center}
+footer{text-align:center;padding:20px 0 28px;color:var(--muted);font-size:.8rem}
+@media(max-width:500px){.row{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header><div class="logo">Cresce & Monetiza</div></header>
+<div class="wrap">
+<header><div class="logo">Cresce & Monetiza</div></header>
 
-    <div class="card">
-      <h2>Seus dados</h2>
-      <div class="row">
-        <div><label>Nome ou @</label><input type="text" id="nome" placeholder="Ex: João"></div>
-        <div><label>Nicho</label><input type="text" id="nicho" placeholder="Ex: finanças, IA..."></div>
-      </div>
-      <div class="chips" id="nicho-chips">
-        <button type="button" class="chip" data-n="finanças pessoais">Finanças</button>
-        <button type="button" class="chip" data-n="ferramentas de IA">IA</button>
-        <button type="button" class="chip" data-n="produtividade">Produtividade</button>
-        <button type="button" class="chip" data-n="saúde e hábitos">Saúde</button>
-        <button type="button" class="chip" data-n="histórias">Histórias</button>
-        <button type="button" class="chip" data-n="receitas">Receitas</button>
-      </div>
-      <div class="row">
-        <div><label>Tom</label><select id="tom"><option value="descontraído">Descontraído</option><option value="profissional">Profissional</option><option value="motivacional">Motivacional</option><option value="educativo">Educativo</option><option value="com humor">Com humor</option></select></div>
-        <div><label>Plataforma</label><select id="plat"><option value="TikTok">TikTok</option><option value="YouTube">YouTube</option><option value="TikTok e YouTube">Ambos</option></select></div>
-      </div>
-    </div>
+<div class="card">
+<h2>Seus dados</h2>
+<div class="row">
+<div><label>Nome ou @</label><input type="text" id="nome" placeholder="Ex: João"></div>
+<div><label>Nicho</label><input type="text" id="nicho" placeholder="Ex: finanças, IA..."></div>
+</div>
+<div class="chips" id="nicho-chips">
+<button type="button" class="chip" data-n="finanças pessoais">Finanças</button>
+<button type="button" class="chip" data-n="ferramentas de IA">IA</button>
+<button type="button" class="chip" data-n="produtividade">Produtividade</button>
+<button type="button" class="chip" data-n="saúde e hábitos">Saúde</button>
+<button type="button" class="chip" data-n="histórias">Histórias</button>
+<button type="button" class="chip" data-n="receitas">Receitas</button>
+</div>
+<div class="row">
+<div><label>Tom</label><select id="tom"><option value="descontraído">Descontraído</option><option value="profissional">Profissional</option><option value="motivacional">Motivacional</option><option value="educativo">Educativo</option><option value="com humor">Com humor</option></select></div>
+<div><label>Plataforma</label><select id="plat"><option value="TikTok">TikTok</option><option value="YouTube">YouTube</option><option value="TikTok e YouTube">Ambos</option></select></div>
+</div>
+</div>
 
-    <div class="tabs">
-      <button class="tab on" data-p="video" onclick="go('video')">Vídeo</button>
-      <button class="tab" data-p="nomes" onclick="go('nomes')">Nomes</button>
-      <button class="tab" data-p="perfil" onclick="go('perfil')">Perfil</button>
-      <button class="tab" data-p="visual" onclick="go('visual')">Capa & Logo</button>
-      <button class="tab" data-p="plano" onclick="go('plano')">Plano 7 dias</button>
-    </div>
+<div class="tabs">
+<button class="tab on" data-p="video" onclick="go('video')">Roteiro</button>
+<button class="tab" data-p="ia" onclick="go('ia')">IA Vídeo</button>
+<button class="tab" data-p="voz" onclick="go('voz')">Voz & Avatar</button>
+<button class="tab" data-p="nomes" onclick="go('nomes')">Nomes</button>
+<button class="tab" data-p="perfil" onclick="go('perfil')">Perfil</button>
+<button class="tab" data-p="visual" onclick="go('visual')">Capa</button>
+</div>
 
-    <div id="p-video" class="panel on">
-      <div class="card">
-        <h2>Roteiro de vídeo</h2>
-        <label>Tema do vídeo</label>
-        <input type="text" id="tema" placeholder="Ex: 3 erros ao investir">
-        <button class="btn btn-main" onclick="genVideo()">Gerar roteiro</button>
-        <div id="o-video" class="out">
-          <div class="block"><h3>Hook (0–3s)</h3><div class="txt" id="v-hook"></div><button class="copy" onclick="cp('v-hook')">Copiar</button></div>
-          <div class="block"><h3>Roteiro completo</h3><div class="txt" id="v-roteiro"></div><button class="copy" onclick="cp('v-roteiro')">Copiar</button></div>
-          <div class="block"><h3>Legenda + hashtags</h3><div class="txt" id="v-legenda"></div><button class="copy" onclick="cp('v-legenda')">Copiar</button></div>
-          <div class="block"><h3>Mais 5 ideias</h3><div class="txt" id="v-ideias"></div><button class="copy" onclick="cp('v-ideias')">Copiar</button></div>
-        </div>
-      </div>
-    </div>
+<div id="p-video" class="panel on">
+<div class="card">
+<h2>Roteiro de vídeo</h2>
+<label>Tema do vídeo</label>
+<input type="text" id="tema" placeholder="Ex: 3 erros ao investir">
+<button class="btn btn-main" onclick="genVideo()">Gerar roteiro</button>
+<div id="o-video" class="out">
+<div class="block"><h3>Hook (0–3s)</h3><div class="txt" id="v-hook"></div><button class="copy" onclick="cp('v-hook')">Copiar</button></div>
+<div class="block"><h3>Roteiro completo</h3><div class="txt" id="v-roteiro"></div><button class="copy" onclick="cp('v-roteiro')">Copiar</button></div>
+<div class="block"><h3>Legenda + hashtags</h3><div class="txt" id="v-legenda"></div><button class="copy" onclick="cp('v-legenda')">Copiar</button></div>
+<div class="block"><h3>Mais 5 ideias</h3><div class="txt" id="v-ideias"></div><button class="copy" onclick="cp('v-ideias')">Copiar</button></div>
+</div>
+</div>
+</div>
 
-    <div id="p-nomes" class="panel">
-      <div class="card">
-        <h2>Nome e @</h2>
-        <button class="btn btn-main" onclick="genNomes()">Gerar nomes</button>
-        <div id="o-nomes" class="out">
-          <div class="block"><h3>Nomes de canal</h3><div class="txt" id="n-nomes"></div><button class="copy" onclick="cp('n-nomes')">Copiar</button></div>
-          <div class="block"><h3>Usernames (@)</h3><div class="txt" id="n-users"></div><button class="copy" onclick="cp('n-users')">Copiar</button></div>
-        </div>
-      </div>
-    </div>
+<div id="p-ia" class="panel">
+<div class="card">
+<h2>Ferramentas de IA para vídeo</h2>
+<div class="step-flow">
+<div><span>1</span> Gere o roteiro na aba Roteiro</div>
+<div><span>2</span> Abra uma ferramenta abaixo</div>
+<div><span>3</span> Cole o roteiro e gere o vídeo</div>
+</div>
+<a class="tool" href="https://www.capcut.com/" target="_blank" rel="noopener"><div class="tool-ico">🎬</div><div><h3>CapCut</h3><p>Edição + IA: legendas, efeitos, texto em fala</p><span class="tag free">Grátis · App e web</span></div></a>
+<a class="tool" href="https://invideo.io/ai/" target="_blank" rel="noopener"><div class="tool-ico">✨</div><div><h3>InVideo AI</h3><p>Texto → vídeo com stock, voz e legendas</p><span class="tag">Freemium</span></div></a>
+<a class="tool" href="https://runwayml.com/" target="_blank" rel="noopener"><div class="tool-ico">🚀</div><div><h3>Runway</h3><p>Texto/imagem → vídeo com IA</p><span class="tag">Freemium</span></div></a>
+<a class="tool" href="https://lumalabs.ai/dream-machine" target="_blank" rel="noopener"><div class="tool-ico">🌙</div><div><h3>Luma Dream Machine</h3><p>Vídeos curtos a partir de texto ou imagem</p><span class="tag">Freemium</span></div></a>
+<a class="tool" href="https://klingai.com/" target="_blank" rel="noopener"><div class="tool-ico">⚡</div><div><h3>Kling AI</h3><p>Vídeos longos e realistas</p><span class="tag">Freemium</span></div></a>
+<a class="tool" href="https://pika.art/" target="_blank" rel="noopener"><div class="tool-ico">🎨</div><div><h3>Pika</h3><p>Texto e imagem para vídeo criativo</p><span class="tag">Freemium</span></div></a>
+<a class="tool" href="https://www.viggle.ai/" target="_blank" rel="noopener"><div class="tool-ico">🕺</div><div><h3>Viggle</h3><p>Anima personagens / movimento</p><span class="tag free">Grátis com limites</span></div></a>
+</div>
+</div>
 
-    <div id="p-perfil" class="panel">
-      <div class="card">
-        <h2>Bio e descrição</h2>
-        <button class="btn btn-main" onclick="genPerfil()">Gerar perfil</button>
-        <div id="o-perfil" class="out">
-          <div class="block"><h3>Bio TikTok</h3><div class="txt" id="p-bio-tt"></div><button class="copy" onclick="cp('p-bio-tt')">Copiar</button></div>
-          <div class="block"><h3>Descrição YouTube</h3><div class="txt" id="p-bio-yt"></div><button class="copy" onclick="cp('p-bio-yt')">Copiar</button></div>
-        </div>
-      </div>
-    </div>
+<div id="p-voz" class="panel">
+<div class="card">
+<h2>Voz e avatar (faceless)</h2>
+<div class="step-flow">
+<div><span>1</span> Gere o roteiro</div>
+<div><span>2</span> Crie a voz ou avatar</div>
+<div><span>3</span> Junte no CapCut</div>
+</div>
+<a class="tool" href="https://elevenlabs.io/" target="_blank" rel="noopener"><div class="tool-ico">🎙️</div><div><h3>ElevenLabs</h3><p>Voz IA realista (texto → áudio)</p><span class="tag free">Grátis com limites</span></div></a>
+<a class="tool" href="https://www.heygen.com/" target="_blank" rel="noopener"><div class="tool-ico">👤</div><div><h3>HeyGen</h3><p>Avatar falante a partir de texto</p><span class="tag">Freemium</span></div></a>
+<a class="tool" href="https://www.synthesia.io/" target="_blank" rel="noopener"><div class="tool-ico">🤖</div><div><h3>Synthesia</h3><p>Apresentador virtual</p><span class="tag">Pago</span></div></a>
+<a class="tool" href="https://ttsmaker.com/" target="_blank" rel="noopener"><div class="tool-ico">🔊</div><div><h3>TTSMaker</h3><p>Texto para voz grátis</p><span class="tag free">Grátis</span></div></a>
+<a class="tool" href="https://www.capcut.com/" target="_blank" rel="noopener"><div class="tool-ico">📱</div><div><h3>CapCut (texto em fala)</h3><p>Voz IA e legendas no app</p><span class="tag free">Grátis</span></div></a>
+</div>
+</div>
 
-    <div id="p-visual" class="panel">
-      <div class="card">
-        <h2>Capa e logo</h2>
-        <button class="btn btn-main" onclick="genVisual()">Gerar conceitos</button>
-        <div id="o-visual" class="out">
-          <div class="block"><h3>Logo</h3><div class="txt" id="vis-logo"></div><button class="copy" onclick="cp('vis-logo')">Copiar</button></div>
-          <div class="block"><h3>Banner / capa</h3><div class="txt" id="vis-banner"></div><button class="copy" onclick="cp('vis-banner')">Copiar</button></div>
-          <div class="block"><h3>Prompt logo (IA de imagem)</h3><div class="txt" id="vis-pl"></div><button class="copy" onclick="cp('vis-pl')">Copiar</button></div>
-          <div class="block"><h3>Prompt banner (IA de imagem)</h3><div class="txt" id="vis-pb"></div><button class="copy" onclick="cp('vis-pb')">Copiar</button></div>
-        </div>
-      </div>
-    </div>
+<div id="p-nomes" class="panel">
+<div class="card">
+<h2>Nome e @</h2>
+<button class="btn btn-main" onclick="genNomes()">Gerar nomes</button>
+<div id="o-nomes" class="out">
+<div class="block"><h3>Nomes de canal</h3><div class="txt" id="n-nomes"></div><button class="copy" onclick="cp('n-nomes')">Copiar</button></div>
+<div class="block"><h3>Usernames (@)</h3><div class="txt" id="n-users"></div><button class="copy" onclick="cp('n-users')">Copiar</button></div>
+</div>
+</div>
+</div>
 
-    <div id="p-plano" class="panel">
-      <div class="card">
-        <h2>Plano de 7 dias</h2>
-        <button class="btn btn-main" onclick="genPlano()">Gerar plano</button>
-        <div id="o-plano" class="out">
-          <div class="block"><h3>Seu plano</h3><div class="txt" id="pl-txt"></div><button class="copy" onclick="cp('pl-txt')">Copiar</button></div>
-        </div>
-      </div>
-    </div>
+<div id="p-perfil" class="panel">
+<div class="card">
+<h2>Bio e descrição</h2>
+<button class="btn btn-main" onclick="genPerfil()">Gerar perfil</button>
+<div id="o-perfil" class="out">
+<div class="block"><h3>Bio TikTok</h3><div class="txt" id="p-bio-tt"></div><button class="copy" onclick="cp('p-bio-tt')">Copiar</button></div>
+<div class="block"><h3>Descrição YouTube</h3><div class="txt" id="p-bio-yt"></div><button class="copy" onclick="cp('p-bio-yt')">Copiar</button></div>
+</div>
+</div>
+</div>
 
-    <footer>Cresce & Monetiza</footer>
-  </div>
+<div id="p-visual" class="panel">
+<div class="card">
+<h2>Capa e logo</h2>
+<button class="btn btn-main" onclick="genVisual()">Gerar conceitos + prompts</button>
+<div id="o-visual" class="out">
+<div class="block"><h3>Logo</h3><div class="txt" id="vis-logo"></div><button class="copy" onclick="cp('vis-logo')">Copiar</button></div>
+<div class="block"><h3>Banner</h3><div class="txt" id="vis-banner"></div><button class="copy" onclick="cp('vis-banner')">Copiar</button></div>
+<div class="block"><h3>Prompt logo</h3><div class="txt" id="vis-pl"></div><button class="copy" onclick="cp('vis-pl')">Copiar</button></div>
+<div class="block"><h3>Prompt banner</h3><div class="txt" id="vis-pb"></div><button class="copy" onclick="cp('vis-pb')">Copiar</button></div>
+</div>
+<div style="margin-top:14px">
+<a class="tool" href="https://www.canva.com/" target="_blank" rel="noopener"><div class="tool-ico">🖼️</div><div><h3>Canva</h3><p>Criar capa e logo</p><span class="tag free">Grátis</span></div></a>
+<a class="tool" href="https://grok.x.ai/" target="_blank" rel="noopener"><div class="tool-ico">✦</div><div><h3>Grok Imagine</h3><p>Gerar imagem com o prompt</p><span class="tag free">No Grok</span></div></a>
+</div>
+</div>
+</div>
 
-  <script>
-    document.querySelectorAll('#nicho-chips .chip').forEach(c => {
-      c.onclick = () => { document.getElementById('nicho').value = c.dataset.n; };
-    });
-    function go(id) {
-      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.p === id));
-      document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === 'p-' + id));
-    }
-    function cp(id) {
-      const el = document.getElementById(id);
-      navigator.clipboard.writeText(el.innerText).then(() => {
-        const b = el.nextElementSibling;
-        if (b) { const o = b.innerText; b.innerText = 'Copiado!'; setTimeout(() => b.innerText = o, 1200); }
-      });
-    }
-    function d() {
-      return {
-        nome: document.getElementById('nome').value.trim() || 'Criador',
-        nicho: document.getElementById('nicho').value.trim() || 'seu nicho',
-        tom: document.getElementById('tom').value,
-        plat: document.getElementById('plat').value
-      };
-    }
-    function slug(s) {
-      return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '').slice(0, 16);
-    }
-    function genVideo() {
-      const { nome, nicho, tom, plat } = d();
-      const tema = document.getElementById('tema').value.trim() || ('dicas de ' + nicho);
-      document.getElementById('v-hook').innerText = 'Se você ainda comete esse erro em ' + tema + ', assista até o final.';
-      document.getElementById('v-roteiro').innerText = 'HOOK (0–3s)\n"Se você ainda comete esse erro em ' + tema + ', assista até o final."\n\nDESENVOLVIMENTO (3–45s)\n1. Problema: a maioria erra em ' + tema + ' por falta de método.\n2. Solução: mostre 2 ou 3 passos simples.\n3. Exemplo rápido ou analogia.\n\nCTA (45–60s)\n"Salva o vídeo e me segue pra mais de ' + nicho + '. Comenta qual passo você vai fazer."';
-      document.getElementById('v-legenda').innerText = tema.charAt(0).toUpperCase() + tema.slice(1) + ' sem enrolação\n\nSalva e compartilha.\n\n#' + slug(nicho) + ' #dicas #' + slug(tema).slice(0, 12) + ' #fyp';
-      document.getElementById('v-ideias').innerText = '1. O erro que 90% cometem em ' + nicho + '\n2. Como comecei em ' + nicho + ' do zero\n3. 3 dicas rápidas de ' + nicho + '\n4. Mitos vs verdades sobre ' + nicho + '\n5. O que eu faria se recomeçasse em ' + nicho;
-      document.getElementById('o-video').classList.add('show');
-    }
-    function genNomes() {
-      const { nome, nicho } = d();
-      const n = slug(nome) || 'criador';
-      const ni = slug(nicho) || 'dicas';
-      const nomes = [nome + ' ' + nicho.charAt(0).toUpperCase() + nicho.slice(1), nicho.charAt(0).toUpperCase() + nicho.slice(1) + ' com ' + nome, 'Canal do ' + nome, nome + ' Explica', nome + ' Lab', 'Mundo ' + nicho.charAt(0).toUpperCase() + nicho.slice(1), 'Dicas de ' + nicho.charAt(0).toUpperCase() + nicho.slice(1)];
-      const users = ['@' + n + ni, '@' + n + '_oficial', '@' + ni + n, '@' + n + 'dicas', '@' + n + 'lab', '@' + n + 'explica'];
-      document.getElementById('n-nomes').innerText = nomes.map((x, i) => (i + 1) + '. ' + x).join('\n');
-      document.getElementById('n-users').innerText = users.map((x, i) => (i + 1) + '. ' + x).join('\n');
-      document.getElementById('o-nomes').classList.add('show');
-    }
-    function genPerfil() {
-      const { nome, nicho, tom } = d();
-      document.getElementById('p-bio-tt').innerText = nome + ' | ' + nicho + '\nTe ajudo de forma ' + tom + '.\n👇 Começa por aqui';
-      document.getElementById('p-bio-yt').innerText = 'Bem-vindo ao canal de ' + nome + '!\n\nConteúdo sobre ' + nicho + ' de forma ' + tom + '.\n\n• Dicas práticas\n• Estratégias que funcionam\n\nSe inscreva e ative o sininho.';
-      document.getElementById('o-perfil').classList.add('show');
-    }
-    function genVisual() {
-      const { nome, nicho } = d();
-      const n = nome || 'Criador';
-      document.getElementById('vis-logo').innerText = 'Estilo: minimalista\nInicial "' + n.charAt(0).toUpperCase() + '" + ícone de ' + nicho + '\nCores: roxo #7c5cfc + azul #38bdf8\nFormato: circular (perfil)';
-      document.getElementById('vis-banner').innerText = 'YouTube: 2560 x 1440 px\nNome à esquerda | frase no centro\nFrase: "' + n + ' | ' + nicho + '"\nFundo escuro, gradiente roxo → azul';
-      document.getElementById('vis-pl').innerText = 'Minimal logo for creator "' + n + '", niche ' + nicho + ', purple and blue accents, dark background, vector, circular crop, clean';
-      document.getElementById('vis-pb').innerText = 'YouTube banner 2560x1440 for "' + n + '", niche ' + nicho + ', dark background soft purple to blue gradient, modern minimal, space for channel name';
-      document.getElementById('o-visual').classList.add('show');
-    }
-    function genPlano() {
-      const { nicho, plat } = d();
-      document.getElementById('pl-txt').innerText = 'Dia 1: Perfil + bio + link\nDia 2: 2 vídeos de valor sobre ' + nicho + '\nDia 3: Hook forte + dúvida comum\nDia 4: Analisar e repostar o melhor\nDia 5: Apresentação + educativo\nDia 6: Interagir + 1 vídeo\nDia 7: Revisar métricas e planejar\n\nPlataforma: ' + plat;
-      document.getElementById('o-plano').classList.add('show');
-    }
-  </script>
+<footer>Cresce & Monetiza</footer>
+</div>
+
+<script>
+document.querySelectorAll('#nicho-chips .chip').forEach(c=>{c.onclick=()=>{document.getElementById('nicho').value=c.dataset.n}});
+function go(id){document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('on',t.dataset.p===id));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+id))}
+function cp(id){const el=document.getElementById(id);navigator.clipboard.writeText(el.innerText).then(()=>{const b=el.nextElementSibling;if(b){const o=b.innerText;b.innerText='Copiado!';setTimeout(()=>b.innerText=o,1200)}})}
+function d(){return{nome:document.getElementById('nome').value.trim()||'Criador',nicho:document.getElementById('nicho').value.trim()||'seu nicho',tom:document.getElementById('tom').value,plat:document.getElementById('plat').value}}
+function slug(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'').slice(0,16)}
+function genVideo(){const{nicho}=d();const tema=document.getElementById('tema').value.trim()||('dicas de '+nicho);document.getElementById('v-hook').innerText='Se você ainda comete esse erro em '+tema+', assista até o final.';document.getElementById('v-roteiro').innerText='HOOK (0–3s)\n"Se você ainda comete esse erro em '+tema+', assista até o final."\n\nDESENVOLVIMENTO (3–45s)\n1. Problema: a maioria erra em '+tema+' por falta de método.\n2. Solução: 2 ou 3 passos simples.\n3. Exemplo rápido.\n\nCTA (45–60s)\n"Salva e me segue pra mais de '+nicho+'. Comenta o que vai aplicar."';document.getElementById('v-legenda').innerText=tema.charAt(0).toUpperCase()+tema.slice(1)+' sem enrolação\n\nSalva e compartilha.\n\n#'+slug(nicho)+' #dicas #'+slug(tema).slice(0,12)+' #fyp';document.getElementById('v-ideias').innerText='1. O erro que 90% cometem em '+nicho+'\n2. Como comecei em '+nicho+' do zero\n3. 3 dicas rápidas de '+nicho+'\n4. Mitos vs verdades sobre '+nicho+'\n5. O que eu faria se recomeçasse em '+nicho;document.getElementById('o-video').classList.add('show')}
+function genNomes(){const{nome,nicho}=d();const n=slug(nome)||'criador';const ni=slug(nicho)||'dicas';const nomes=[nome+' '+nicho.charAt(0).toUpperCase()+nicho.slice(1),nicho.charAt(0).toUpperCase()+nicho.slice(1)+' com '+nome,'Canal do '+nome,nome+' Explica',nome+' Lab','Mundo '+nicho.charAt(0).toUpperCase()+nicho.slice(1)];const users=['@'+n+ni,'@'+n+'_oficial','@'+ni+n,'@'+n+'dicas','@'+n+'lab'];document.getElementById('n-nomes').innerText=nomes.map((x,i)=>(i+1)+'. '+x).join('\n');document.getElementById('n-users').innerText=users.map((x,i)=>(i+1)+'. '+x).join('\n');document.getElementById('o-nomes').classList.add('show')}
+function genPerfil(){const{nome,nicho,tom}=d();document.getElementById('p-bio-tt').innerText=nome+' | '+nicho+'\nTe ajudo de forma '+tom+'.\n👇 Começa por aqui';document.getElementById('p-bio-yt').innerText='Bem-vindo ao canal de '+nome+'!\n\nConteúdo sobre '+nicho+' de forma '+tom+'.\n\n• Dicas práticas\n• Estratégias que funcionam\n\nSe inscreva e ative o sininho.';document.getElementById('o-perfil').classList.add('show')}
+function genVisual(){const{nome,nicho}=d();const n=nome||'Criador';document.getElementById('vis-logo').innerText='Estilo minimalista\nInicial "'+n.charAt(0).toUpperCase()+'" + ícone de '+nicho+'\nCores: roxo + azul\nCircular para perfil';document.getElementById('vis-banner').innerText='2560×1440 px\n"'+n+' | '+nicho+'"\nFundo escuro, gradiente roxo → azul';document.getElementById('vis-pl').innerText='Minimal logo for creator "'+n+'", niche '+nicho+', purple and blue, dark background, vector, circular';document.getElementById('vis-pb').innerText='YouTube banner 2560x1440 "'+n+'", niche '+nicho+', dark purple to blue gradient, modern minimal';document.getElementById('o-visual').classList.add('show')}
+</script>
 </body>
 </html>
